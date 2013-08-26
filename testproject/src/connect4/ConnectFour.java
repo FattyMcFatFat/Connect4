@@ -28,7 +28,6 @@ import mo.Player;
 	          /,_|  |   /,_/   /
 	             /,_/      '`-'
  * TODO:
- * 
  * 		 -immerhin 90,5% code Coverage
  * 		 -Wenn gewonnen 4 steine hervorheben oder linie ziehen, aufteilen des wincheck in 4 methoden dazu hilfreich
  * @author stgebhar
@@ -123,7 +122,7 @@ public class ConnectFour {
 			System.out.println("\t --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink");
 			System.out.println("\t help: request help");
 			System.out.println("\t new: start a new game");
-			System.out.println("\t quit: to quit the game");
+			System.out.println("\t quit: exit the game");
 			return true;
 		}
 		// starts a new game
@@ -154,7 +153,8 @@ public class ConnectFour {
 		        	controller.setColors(retCol, null);
 		        	return true;
 		        }
-		    } catch(NumberFormatException e) { 
+		    } catch(NumberFormatException e) {
+		    	System.out.println("invalid input");
 		        return true; 
 		    }
 		}
@@ -168,7 +168,8 @@ public class ConnectFour {
 		        	controller.setColors(null, retCol);
 		        	return true;
 		        }
-		    } catch(NumberFormatException e) { 
+		    } catch(NumberFormatException e) {
+		    	System.out.println("invalid input");
 		        return true; 
 		    }
 		}

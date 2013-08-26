@@ -49,7 +49,6 @@ public class GridPanel extends JPanel {
 				int clicked = e.getX();
 				int width = (int) getSize().getWidth();
 				int split = (int) (7 * ((double) clicked / (double) width));
-				System.out.println(split);
 				if (grid.getHeight(split) != -1){
 					controller.setValue(grid.getCell(grid.getHeight(split), split));
 				}
