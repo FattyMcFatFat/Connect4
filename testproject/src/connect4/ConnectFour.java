@@ -28,6 +28,7 @@ import mo.Player;
 	          /,_|  |   /,_/   /
 	             /,_/      '`-'
  * TODO:
+ * 
  * 		 -immerhin 90,5% code Coverage
  * 		 -Wenn gewonnen 4 steine hervorheben oder linie ziehen, aufteilen des wincheck in 4 methoden dazu hilfreich
  * @author stgebhar
