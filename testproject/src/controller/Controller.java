@@ -1,14 +1,13 @@
-package co;
+package controller;
 
 import java.awt.Color;
 
 import observer.Observable;
-
-import mo.Cell;
-import mo.Grid;
-import mo.Player;
-import mo.Status;
-import mo.Turn;
+import model.Cell;
+import model.Grid;
+import model.Player;
+import model.Status;
+import model.Turn;
 
 public class Controller extends Observable {
 

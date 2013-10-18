@@ -1,4 +1,4 @@
-package mo;
+package model;
 
 import java.io.Serializable;
 

@@ -5,12 +5,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import vi.Frame;
-
-import co.Controller;
-
-import mo.Grid;
-import mo.Player;
+import controller.Controller;
+import view.Frame;
+import model.Grid;
+import model.Player;
 
 /**
  *                             _

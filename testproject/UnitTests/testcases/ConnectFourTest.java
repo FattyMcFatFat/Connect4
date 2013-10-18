@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 public class ConnectFourTest extends TestCase {
 
-	ConnectFour c4;
+	private ConnectFour c4;
 
 	public void setUp() {
 		c4 = new ConnectFour();

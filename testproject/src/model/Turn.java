@@ -1,4 +1,4 @@
-package mo;
+package model;
 
 public class Turn {
 	private int turn;

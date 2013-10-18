@@ -1,6 +1,6 @@
 package testcases;
 
-import mo.Turn;
+import model.Turn;
 import junit.framework.TestCase;
 
 public class TurnTest extends TestCase {

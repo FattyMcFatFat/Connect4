@@ -1,4 +1,4 @@
-package vi;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -11,12 +11,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import controller.Controller;
 import observer.IObserver;
-
-import mo.Grid;
-import mo.Player;
-import mo.Status;
-import co.Controller;
+import model.Grid;
+import model.Player;
+import model.Status;
 
 /**
  * 

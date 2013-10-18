@@ -1,4 +1,4 @@
-package vi;
+package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -6,8 +6,8 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
-import mo.Cell;
-import mo.Player;
+import model.Cell;
+import model.Player;
 
 
 public class CellPanel extends JPanel {

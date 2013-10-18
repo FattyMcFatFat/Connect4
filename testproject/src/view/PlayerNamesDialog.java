@@ -1,4 +1,4 @@
-package vi;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

@@ -1,6 +1,6 @@
 package testcases;
 
-import mo.Grid;
+import model.Grid;
 import junit.framework.TestCase;
 
 /**
@@ -9,10 +9,10 @@ import junit.framework.TestCase;
  *
  */
 public class GridTest extends TestCase {
-	Grid grid;
-	String newLine = "\n";
-	String sepLine = "|---+---+---+---+---+---+---|";
-	String NumberLine = "|   |   |   |   |   |   |   | ";
+	private Grid grid;
+	private static final String newLine = "\n";
+	private static final String sepLine = "|---+---+---+---+---+---+---|";
+	private static final String NumberLine = "|   |   |   |   |   |   |   | ";
 	
 	protected void setUp(){
 		grid = new Grid();

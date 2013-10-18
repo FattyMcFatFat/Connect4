@@ -1,10 +1,10 @@
 package testcases;
 
-import mo.Cell;
+import model.Cell;
 import junit.framework.TestCase;
 
 public class CellTest extends TestCase {
-	Cell cell;
+	private Cell cell;
 	
 	protected void setUp(){
 		cell = new Cell();

@@ -2,7 +2,7 @@ package testcases;
 
 import java.awt.Color;
 
-import mo.Player;
+import model.Player;
 import junit.framework.TestCase;
 
 public class PlayerTest extends TestCase {

@@ -1,4 +1,4 @@
-package vi;
+package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -9,10 +9,9 @@ import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import co.Controller;
-
-import mo.Grid;
-import mo.Player;
+import controller.Controller;
+import model.Grid;
+import model.Player;
 
 
 public class GridPanel extends JPanel {
