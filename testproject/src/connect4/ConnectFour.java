@@ -91,6 +91,7 @@ public class ConnectFour {
 		    line = scanner.next();
 			cont = handleInput(line);
 		}
+		scanner.close();
 		controller.doExit();
 	}
 	
