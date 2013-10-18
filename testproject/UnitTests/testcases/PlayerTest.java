@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 public class PlayerTest extends TestCase {
 	private Player player;
 	
+	@Override
 	protected void setUp(){
 		player = new Player();
 	}

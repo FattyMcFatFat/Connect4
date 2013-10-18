@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 public class CellTest extends TestCase {
 	private Cell cell;
 	
+	@Override
 	protected void setUp(){
 		cell = new Cell();
 	}

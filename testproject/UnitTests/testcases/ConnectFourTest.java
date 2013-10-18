@@ -7,6 +7,7 @@ public class ConnectFourTest extends TestCase {
 
 	private ConnectFour c4;
 
+	@Override
 	public void setUp() {
 		c4 = new ConnectFour();
 	}

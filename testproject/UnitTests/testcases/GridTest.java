@@ -14,6 +14,7 @@ public class GridTest extends TestCase {
 	private static final String sepLine = "|---+---+---+---+---+---+---|";
 	private static final String NumberLine = "|   |   |   |   |   |   |   | ";
 	
+	@Override
 	protected void setUp(){
 		grid = new Grid();
 	}

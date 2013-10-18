@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 public class TurnTest extends TestCase {
 private Turn turn;
 	
+	@Override
 	protected void setUp(){
 		turn = new Turn();
 	}
