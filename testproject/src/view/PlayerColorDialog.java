@@ -29,6 +29,7 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 	private Color playerTwo = Color.YELLOW;
 	private Color [] color = new Color [ ] {Color.BLACK, Color.LIGHT_GRAY, Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PINK}; 
 
+
 	public PlayerColorDialog(JFrame f) {
 		super(f, "Playercolors", true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
