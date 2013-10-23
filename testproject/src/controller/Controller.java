@@ -88,6 +88,7 @@ public class Controller extends Observable {
 		notifyObservers();
 	}
 
+	// TODO: Grüße an Fabi entfernen
 	/**
 	 * sets the colors for the palyers
 	 * 
@@ -95,7 +96,12 @@ public class Controller extends Observable {
 	 * @param p2
 	 */
 	public void setColors(Color p1, Color p2) {
-		player.setColors(p1, p2);
+		if (p1 == p2){
+			grid.getStatus().setText("NUR FÜR DICH FABI!");
+			System.out.println(grid.getStatus().getText());
+		} else {
+			player.setColors(p1, p2);
+		}
 		notifyObservers();
 	}
 
