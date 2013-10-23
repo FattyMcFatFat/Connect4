@@ -25,28 +25,12 @@ import model.Player;
 	           | |  |  ``/  /`  /
 	          /,_|  |   /,_/   /
 	             /,_/      '`-'
- * TODO:
- * 		 -immerhin 90,5% code Coverage
- * 		 -Wenn gewonnen 4 steine hervorheben oder linie ziehen, aufteilen des wincheck in 4 methoden dazu hilfreich
  * @author stgebhar
  * @version 1.5.7
- *   + mehr farben
- *   + Namen+Farben werden über controller und dadurch mit Observerbenachrichtigung geändert => sofort aktualisiert
- *   ++ namen in TUI änderbar
- *   ++ farben in tui änderbar
- *   +++ kleiner fix bei farbenwahl
- *   +++ verminderung der checkstyle-warnings
- *   +++ es wird jetzt immer der Sieger als "has won the game" angezeigt, auch falls weitergespielt wird
- *   ++++ "Tie" wird nur noch angezeigt falls wirklich niemand gewonnen hat nach 42 Steinen
- *   ++++ neue tests
- *   +++++ Verminderung der MagicNumbers
- *   +++++ neues Spiel kann jetzt auch per TUI aufgerufen werden und bringt entsprechende Benachrichtigungen
- *   +++++ newGrid resettet jetzt auch turn und player
- *   +++++ keiner helpoutput-fix
- *   ++++++ Bei Colorwahl wird jetzt immer der aktuelle Name angezeigt anstelle von "Player1/2"
- *   ++++++ Neue returnMethoden bei Player, genutzt in Frame. Bei c4 Player jetzt als klassenvariable
- *   ++++++ Bug bei Player gefixt durch neue Methoden, aufruf im Controller
- *   +++++++ confirmDialogs bei new/quit in gui, quit in gui macht jetzt doexit anstelle von system.exit 
+ * 
+ * Latest changes:
+ * - Players can no longer pick the same color
+ * 
  */
 public class ConnectFour {
 	
@@ -97,8 +81,10 @@ public class ConnectFour {
 	
 	/**
 	 * handles the given inputvalue
-	 * @param line
-	 * @return
+	 * ---Java 1.6 cannot switch Strings---
+	 * @param line: Input from Scanner
+	 * @return: false if the input is "quit" or "exit"
+	 * 			true if the game continues
 	 */
 	public boolean handleInput(String line) {
 		
