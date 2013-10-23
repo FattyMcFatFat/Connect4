@@ -16,11 +16,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * The PlayerColorDialog is for changing colors of the players.
+ * 
+ * @author stgebhar
+ *
+ */
 public class PlayerColorDialog extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private JComboBox playerOneBox;
-	private JComboBox playerTwoBox;
+	private JComboBox<?> playerOneBox;
+	private JComboBox<?> playerTwoBox;
 	private JButton saveButton = new JButton("Save");
 	private JButton quitButton = new JButton("Cancel");
 	private JLabel label1;
@@ -30,14 +36,18 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 	private Color [] color = new Color [ ] {Color.BLACK, Color.LIGHT_GRAY, Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.PINK}; 
 
 
+	/**
+	 * builds the frame for colo-dialog
+	 * @param f: Frame
+	 */
 	public PlayerColorDialog(JFrame f) {
 		super(f, "Playercolors", true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		saveButton.addActionListener(this);
 		quitButton.addActionListener(this);
 		String [ ] colorStrings = { "Black", "Gray", "Red", "Orange", "Yellow", "Green", "Blue", "Pink"};
-		playerOneBox = new JComboBox(colorStrings);
-		playerTwoBox = new JComboBox(colorStrings);
+		playerOneBox = new JComboBox<Object>(colorStrings);
+		playerTwoBox = new JComboBox<Object>(colorStrings);
 		JPanel panelN = new JPanel(new GridLayout(0, 2, 5, 5));
 		label1 = new JLabel("Player 1", JLabel.RIGHT);
 		panelN.add(label1);
@@ -54,6 +64,14 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 		pack();
 	}
 
+	/**
+	 * Show the select-color dialog.
+	 * Colors of players can be changed in this dialog
+	 * @param p1: current color of player 1
+	 * @param p2: current color of player 2
+	 * @param name1: name of player 1
+	 * @param name2: name of player 2
+	 */
 	public void showDialog(Color p1, Color p2, String name1, String name2) {
 		playerOneBox.setSelectedIndex(Arrays.asList(color).indexOf(p1));
 		playerTwoBox.setSelectedIndex(Arrays.asList(color).indexOf(p2));
@@ -64,6 +82,11 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 		setVisible(true);
 	}
 
+	/**
+	 * Action Listener
+	 * Save-button: Sets the selected Colors
+	 * Cancel-button: Drops the changes
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source.equals(saveButton)) {
@@ -76,10 +99,18 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 		setVisible(false);
 	}
 
+	/**
+	 * Returns the Color of Player2
+	 * @return Color Player 2
+	 */
 	public Color getP2Color() {
 		return playerTwo;
 	}
 
+	/**
+	 * Returns the Color of Player1
+	 * @return Color Player 1
+	 */
 	public Color getP1Color() {
 		return playerOne;
 	}
