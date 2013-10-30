@@ -32,5 +32,10 @@ public class PlayerTest extends TestCase {
 		player.setColors(Color.GREEN, Color.BLUE);
 		assertEquals(Color.GREEN, player.getPlayerOneColor());
 		assertEquals(Color.BLUE, player.getPlayerTwoColor());
+		player.setColors(Color.YELLOW, null);
+		player.setColors(null, Color.RED);
+		assertEquals(Color.RED, player.getPlayerTwoColor());
+		assertEquals(Color.YELLOW, player.getPlayerOneColor());
+
 	}
 }

@@ -94,7 +94,6 @@ public class Controller extends Observable {
 		notifyObservers();
 	}
 
-	// TODO: Grüße an Fabi entfernen
 	/**
 	 * sets the colors for the players
 	 * prints an error message if colors are the same
@@ -102,8 +101,15 @@ public class Controller extends Observable {
 	 * @param p2: new color of player 2
 	 */
 	public void setColors(Color p1, Color p2) {
+		if(p1 == null){
+			p1 = player.getPlayerOneColor();
+		}
+		if(p2 == null){
+			p2 = player.getPlayerTwoColor();
+		}
+		
 		if (p1 == p2){
-			grid.getStatus().setText("NUR FÜR DICH FABI!");
+			grid.getStatus().setText("Players cannot pick the same color!");
 			System.out.println(grid.getStatus().getText());
 		} else {
 			player.setColors(p1, p2);
