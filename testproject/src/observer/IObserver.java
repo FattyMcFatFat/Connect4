@@ -1,6 +1,6 @@
 package observer;
 
 public interface IObserver {
-	void update();
+    void update();
 
 }
