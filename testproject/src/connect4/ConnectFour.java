@@ -13,16 +13,33 @@ import model.Player;
 import org.apache.log4j.Logger;
 
 /**
- * _ _._ _..._ .-', _.._(`)) '-. ` ' /-._.-' ',/ ) \ '. / _ _ | \ | a a / | \
- * .-. ; '-('' ).-' ,' ; '-; | .' \ \ / | 7 .__ _.-\ \ | | | ``/ /` / /,_| |
- * /,_/ / /,_/ '`-'
+ * ==============================================================
+ * When I wrote this, only God and I understood what I was doing
+ * Edit: Now, God only knows
+ * ==============================================================
+ * @author: If this code works, it was written by Stefan Gebhart. 
+ *          If not, I don't know who wrote it
+ * ==============================================================
+ * @version: 1.6.1
+ * latest changes: -replaced tabs with whitespaces
+ *                 -reduced complexity of handleInput()
+ * ==============================================================           
+ * @project.mascot:
  * 
- * @author stgebhar
- * @version 1.5.7
- * 
- *          Latest changes: - Players can no longer pick the same color - added
- *          save & load
- * 
+ *   _._ _..._ .-',     _.._(`))
+ *   '-. `     '  /-._.-'    ',/
+ *     )         \            '.
+ *    / _    _    |             \
+ *   |  a    a    /              |
+ *   \   .-.                     ;  
+ *    '-('' ).-'       ,'       ;
+ *       '-;           |      .'
+ *          \           \    /
+ *          | 7  .__  _.-\   \
+ *          | |  |  ``/  /`  /
+ *         /,_|  |   /,_/   /
+ *            /,_/      '`-'
+ * ==============================================================
  */
 public class ConnectFour {
 
@@ -212,6 +229,23 @@ public class ConnectFour {
 
     /**
      * main; Enter "help" if you want to know how to use the program
+     * 
+     * @                                    /\  /\
+     *  @                                  /  \/  \
+     *   @                                /        --
+     *    \---\                          /           \
+     *     |   \------------------------/       /-\    \
+     *     |                                    \-/     \
+     *      \                                             ------O
+     *       \                                                 /
+     *        |    |                    |    |                /
+     *        |    |                    |    |-----    -------
+     *        |    |\                  /|    |     \  WWWWWW/
+     *        |    | \                / |    |      \-------
+     *        |    |  \--------------/  |    |
+     *       /     |                   /     |
+     *       \      \                  \      \
+     *        \-----/                   \-----/
      * 
      * @param args
      */
