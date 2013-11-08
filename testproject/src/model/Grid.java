@@ -20,6 +20,16 @@ public class Grid {
 			}
 		}
 	}
+	
+	/**
+	 * TODO: currently unsued
+	 * @param row
+	 * @param column
+	 * @param value
+	 */
+	public void setCell(int row, int column, int value){
+		cells[row][column].setValue(value);
+	}
 
 	/**
 	 * returns a cell
@@ -88,6 +98,25 @@ public class Grid {
 		}
 		return result.toString();
 	}
+	
+	/**
+	 * returns only the cellvalues as String
+	 * Used for savegames
+	 * @return
+	 */
+	public String vaulesToString() {
+		StringBuffer result = new StringBuffer();
+		for (int row = 5; row >= 0; row--){
+			for (int column = 0; column < COLUMNS; column++){
+				result.append(cells[row][column].toString());
+			}
+			result.append("\n");
+			
+
+		}
+		return result.toString();
+	}
+	
 	/**
 	 * checks if a player has won the game
 	 * @return
