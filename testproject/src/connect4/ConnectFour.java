@@ -10,6 +10,7 @@ import view.Frame;
 import model.Grid;
 import model.Player;
 
+import org.apache.log4j.Logger;
 /**
  *                             _
 	   _._ _..._ .-',     _.._(`))
@@ -38,6 +39,7 @@ public class ConnectFour {
 	private Player player;
 	private Controller controller;
 	private Frame frame;
+	private Logger log = Logger.getLogger(ConnectFour.class);
 	private static final int BLACK = 1;
 	private static final int LIGHT_GRAY = 2;
 	private static final int RED = 3;
@@ -67,7 +69,7 @@ public class ConnectFour {
 		String line = "";
 		controller.newGrid();
 		
-		System.out.println("Enter \"help\" to see available commands.");
+		log.info("Enter \"help\" to see available commands.");
 		
 		boolean cont = true;
 		while(cont){
@@ -98,16 +100,16 @@ public class ConnectFour {
 		}
 		// help quest
 		if (line.equalsIgnoreCase("help")) {
-			System.out.println("Possible TUI-input:");
-			System.out.println("\t [1-7]: the column you want to put in your token");
-			System.out.println("\t n1[Name]: change the name of Player 1");
-			System.out.println("\t n2[Name]: change the name of Player 2");
-			System.out.println("\t c1[ColorNumber]: change the color of Player 2");
-			System.out.println("\t c2[ColorNumber]: change the color of Player 2");
-			System.out.println("\t --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink");
-			System.out.println("\t help: request help");
-			System.out.println("\t new: start a new game");
-			System.out.println("\t quit: exit the game");
+			log.info("Possible TUI-input:");
+			log.info("\t [1-7]: the column you want to put in your token");
+			log.info("\t n1[Name]: change the name of Player 1");
+			log.info("\t n2[Name]: change the name of Player 2");
+			log.info("\t c1[ColorNumber]: change the color of Player 2");
+			log.info("\t c2[ColorNumber]: change the color of Player 2");
+			log.info("\t --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink");
+			log.info("\t help: request help");
+			log.info("\t new: start a new game");
+			log.info("\t quit: exit the game");
 			return true;
 		}
 		// starts a new game
@@ -139,7 +141,7 @@ public class ConnectFour {
 		        	return true;
 		        }
 		    } catch(NumberFormatException e) {
-		    	System.out.println("invalid input");
+		    	log.warn("invalid input");
 		        return true; 
 		    }
 		}
@@ -154,7 +156,7 @@ public class ConnectFour {
 		        	return true;
 		        }
 		    } catch(NumberFormatException e) {
-		    	System.out.println("invalid input");
+		    	log.warn("invalid input");
 		        return true; 
 		    }
 		}
@@ -170,12 +172,12 @@ public class ConnectFour {
 				return true;
 			}
 			controller.setValue(grid.getCell(i, arg));
-			System.out.println(grid.toString());
-			System.out.println(grid.getStatus().getText());
+			log.info(grid.toString());
+			log.info(grid.getStatus().getText());
 			return true;
 		}
 		// in case there was no valid input
-		System.out.println("invalid input");
+		log.warn("invalid input");
 		return true;
 	}
 	
