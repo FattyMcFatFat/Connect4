@@ -9,24 +9,25 @@ import javax.swing.border.BevelBorder;
 
 public class StatusPanel extends JPanel {
 
-	private final JLabel statusLabel = new JLabel("");
-	private static final long serialVersionUID = 1L;
+    private final JLabel statusLabel = new JLabel("");
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * constructor
-	 */
-	public StatusPanel() {
-		setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
+    /**
+     * constructor
+     */
+    public StatusPanel() {
+        setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
-		setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
-		add(statusLabel);
-	}
+        setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+        add(statusLabel);
+    }
 
-	/**
-	 * sets a text to panel
-	 * @param text
-	 */
-	public final void setText(final String text) {
-		statusLabel.setText(" " + text);
-	}
+    /**
+     * sets a text to panel
+     * 
+     * @param text
+     */
+    public final void setText(final String text) {
+        statusLabel.setText(" " + text);
+    }
 }
