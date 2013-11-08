@@ -1,6 +1,6 @@
-package connect4;
+package connectFour;
 
-import connect4.ConnectFour;
+import connectFour.ConnectFour;
 import junit.framework.TestCase;
 
 public class ConnectFourTest extends TestCase {
