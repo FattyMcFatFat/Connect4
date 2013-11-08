@@ -1,4 +1,4 @@
-package connect4;
+package connectFour;
 
 import java.awt.Color;
 import java.util.Scanner;
