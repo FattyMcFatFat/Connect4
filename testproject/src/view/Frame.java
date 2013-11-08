@@ -166,7 +166,7 @@ public class Frame extends JFrame implements IObserver {
      * 
      * @param grid
      */
-    public void constructPane() {
+    public final void constructPane() {
 
         if (gridPanel != null) {
             pane.remove(gridPanel);
