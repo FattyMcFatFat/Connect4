@@ -4,7 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,7 +25,7 @@ import model.Player;
 import model.Status;
 
 /**
- * 
+ * Frame for GUI
  * @author stgebhar
  * 
  */
@@ -105,7 +112,26 @@ public class Frame extends JFrame implements IObserver {
 		
 		fileMenu.add(optionsMenuItem);
 		fileMenu.addSeparator();
-
+		
+		// save menu
+		JMenuItem saveMenuItem = new JMenuItem("Save Game");
+		saveMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				saveGame(Frame.this);
+			}
+		});
+		fileMenu.add(saveMenuItem);
+		
+		// load menu
+		JMenuItem loadMenuItem = new JMenuItem("Load Game");
+		loadMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				loadGame(Frame.this);
+			}
+		});
+		fileMenu.add(loadMenuItem);
+		fileMenu.addSeparator();
+		
 		// quit menu
 		JMenuItem quitMenuItem = new JMenuItem("Quit");
 		quitMenuItem.addActionListener(new ActionListener() {
@@ -147,6 +173,62 @@ public class Frame extends JFrame implements IObserver {
 		pane.add(statusPanel, BorderLayout.SOUTH);
 		setVisible(true);
 		repaint();
+	}
+	
+	/**
+	 * saves a game
+	 * @param frame JFrame
+	 */
+	public void saveGame(JFrame frame) {
+		JFileChooser fileChooser = new JFileChooser(".");
+		int result = fileChooser.showSaveDialog(frame);
+		if (result == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();
+			if (file.exists()
+					&& JOptionPane.showConfirmDialog(frame, "File \""
+							+ file.getName() + "\" already exists.\n"
+							+ "Would you like to replace it?", "Save",
+							JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
+				return;
+			}
+			try {
+				FileOutputStream fos = new FileOutputStream(file);
+				ObjectOutputStream outStream = new ObjectOutputStream(fos);
+				outStream.writeObject(grid.vaulesToString());
+				outStream.flush();
+				outStream.close();
+
+			} catch (IOException ioe) {
+				JOptionPane.showMessageDialog(frame,
+						"IOException saving game:\n"
+								+ ioe.getLocalizedMessage(), "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
+	/**
+	 * loads a saved game
+	 * @param frame JFrame
+	 */
+	public void loadGame(JFrame frame){
+		JFileChooser fileChooser = new JFileChooser(".");
+		int result = fileChooser.showOpenDialog(frame);
+		if (result == JFileChooser.APPROVE_OPTION) {
+			try {
+				FileInputStream fis = new FileInputStream(fileChooser
+						.getSelectedFile());
+				ObjectInputStream inStream = new ObjectInputStream(fis);
+				controller.setCellsFromLoad((String) inStream.readObject());
+				inStream.close();
+			} catch (IOException ioe) {
+				JOptionPane.showMessageDialog(frame,
+						"IOException reading connect4:\n"
+								+ ioe.getLocalizedMessage(), "Error",
+						JOptionPane.ERROR_MESSAGE);
+			} catch (ClassNotFoundException e) {
+				
+			}
+		}
 	}
 
 	/**
