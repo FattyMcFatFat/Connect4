@@ -1,28 +1,30 @@
 package observer;
 
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Vector;
+import java.util.List;
 
-public class Observable {
+public class Observable implements IObservable {
 
-    private Vector<IObserver> subscribers = new Vector<IObserver>(2);
+        private List<IObserver> subscribers = new ArrayList<IObserver>(2);
 
-    /**
-     * adds an observer
-     * 
-     * @param s
-     */
-    public void addObserver(IObserver s) {
-        subscribers.addElement(s);
-    }
-
-    /**
-     * notifies all observers
-     */
-    public void notifyObservers() {
-        for (Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
-            IObserver observer = iter.next();
-            observer.update();
+        public void addObserver(IObserver s) {
+                subscribers.add(s);
         }
-    }
+
+        public void removeObserver(IObserver s) {
+                subscribers.remove(s);
+        }
+
+        public void removeAllObservers() {
+                subscribers.clear();
+        }
+
+        @Override
+        public void notifyObservers() {
+                for ( Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
+                        IObserver observer = iter.next();
+                        observer.update();
+                }
+        }
 }
