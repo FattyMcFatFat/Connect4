@@ -31,6 +31,7 @@ import org.apache.log4j.Logger;
  * 
  * Latest changes:
  * - Players can no longer pick the same color
+ * - added save & load
  * 
  */
 public class ConnectFour {
