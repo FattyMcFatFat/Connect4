@@ -29,7 +29,6 @@ public class Cell {
 
 	/**
 	 * returns a String of the form "1"
-	 * ---CURRENTLY UNUSED---
 	 */
 	public String toString() {
 		return "" + value;
