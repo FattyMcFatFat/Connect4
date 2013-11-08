@@ -2,6 +2,8 @@ package controller;
 
 import java.awt.Color;
 
+import org.apache.log4j.Logger;
+
 import observer.Observable;
 import model.Cell;
 import model.Grid;
@@ -15,6 +17,7 @@ public class Controller extends Observable {
 	private Status status;
 	private Player player;
 	private Turn turn;
+	private Logger log = Logger.getLogger(Controller.class);
 	private static final int MAX_TURNS = 42;
 
 	/**
@@ -44,8 +47,8 @@ public class Controller extends Observable {
 		player.resetPlayer();
 		turn.resetTurn();
 		status.setText("A new Game was created");
-		System.out.println(grid.toString());
-		System.out.println(grid.getStatus().getText());
+		log.info(grid.toString());
+		log.info(grid.getStatus().getText());
 		notifyObservers();
 	}
 
@@ -61,7 +64,7 @@ public class Controller extends Observable {
 
 		turn.incTurn();
 		cell.setValue(player.getPlayer());
-		System.out.println(grid.toString());
+		log.info(grid.toString());
 		grid.getStatus().setText(player.getOtherPlayerName() + "'s turn.");
 
 		// checks if the grid is full
@@ -76,7 +79,7 @@ public class Controller extends Observable {
 			}
 			grid.getStatus().setText(player.getWinner() + " has won the game!");
 		}
-		System.out.println(grid.getStatus().getText());
+		log.info(grid.getStatus().getText());
 
 		player.changePlayer();
 
@@ -101,20 +104,51 @@ public class Controller extends Observable {
 	 * @param p2: new color of player 2
 	 */
 	public void setColors(Color p1, Color p2) {
-		if(p1 == null){
-			p1 = player.getPlayerOneColor();
+		Color col1 = p1;
+		Color col2 = p2;
+		
+		if(col1 == null){
+			col1 = player.getPlayerOneColor();
 		}
-		if(p2 == null){
-			p2 = player.getPlayerTwoColor();
+		if(col2 == null){
+			col2 = player.getPlayerTwoColor();
 		}
 		
-		if (p1 == p2){
+		if (col1.equals(col2)){
 			grid.getStatus().setText("Players cannot pick the same color!");
-			System.out.println(grid.getStatus().getText());
+			log.info(grid.getStatus().getText());
 		} else {
 			player.setColors(p1, p2);
 		}
 		notifyObservers();
+	}
+	
+	/**
+	 * sets the grid if a savegame is loaded
+	 * @param input saved grid as string
+	 */
+	public void setCellsFromLoad(String input){
+		grid.reset();
+		if (player.getPlayer() != 1) {
+			player.changePlayer();
+		}
+		player.resetPlayer();
+		turn.resetTurn();
+		int tmp = 5;
+		String inputWithoutWhitespaces = input.replaceAll("\\s+","");
+		for (int j = 0; j < 6; j++) {
+			for(int i = 0; i < 7; i++){
+				char c = inputWithoutWhitespaces.charAt((j*7)+i);
+				int val = Character.getNumericValue(c);
+				if(val != 0){
+					grid.setCell(tmp, i, val);
+					turn.incTurn();
+				}
+			}
+			tmp--;
+		}
+		notifyObservers();
+		System.out.println(grid.toString());
 	}
 
 	/**
@@ -122,7 +156,7 @@ public class Controller extends Observable {
 	 */
 	public void doExit() {
 		grid.getStatus().setText("Game has been closed");
-		System.out.println(grid.getStatus().getText());
+		log.info(grid.getStatus().getText());
 		notifyObservers();
 
 		System.exit(0);
