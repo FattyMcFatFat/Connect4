@@ -22,7 +22,7 @@ import org.apache.log4j.Logger;
  * ==============================================================
  * @version: 1.6.1
  * latest changes: -replaced tabs with whitespaces
- *                 -reduced complexity of handleInput()
+ *                 -added some helpful comments in this class
  * ==============================================================           
  * @project.mascot:
  * 
