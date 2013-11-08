@@ -24,6 +24,17 @@ public class GridTest extends TestCase {
 		assertEquals(sepLine + newLine + NumberLine + newLine + sepLine + newLine + NumberLine + newLine +sepLine + newLine + NumberLine + newLine +sepLine + newLine + NumberLine + newLine +sepLine + newLine + NumberLine + newLine +sepLine + newLine + NumberLine + newLine + sepLine + newLine, grid.toString());
 	}
 	
+	public void testSetCell(){
+		grid.setCell(1, 1, 1);
+		assertEquals(1, grid.getCell(1, 1).getValue());
+	}
+	
+	public void testVaulesToString(){
+		grid.reset();
+		System.out.println(grid.vaulesToString());
+		assertEquals("0000000" + newLine + "0000000" + newLine + "0000000" + newLine + "0000000" + newLine + "0000000" + newLine + "0000000" + newLine, grid.vaulesToString());
+	}
+	
 	public void testgetHeight(){
 		assertEquals(0 ,grid.getHeight(2));
 	}
