@@ -12,14 +12,6 @@ public class Observable implements IObservable {
                 subscribers.add(s);
         }
 
-        public void removeObserver(IObserver s) {
-                subscribers.remove(s);
-        }
-
-        public void removeAllObservers() {
-                subscribers.clear();
-        }
-
         @Override
         public void notifyObservers() {
                 for ( Iterator<IObserver> iter = subscribers.iterator(); iter.hasNext();) {
