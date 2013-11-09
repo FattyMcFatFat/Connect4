@@ -123,10 +123,30 @@ public class Grid {
     /**
      * checks if a player has won the game
      * 
-     * @return
+     * @return true if a player has won the game
      */
     public boolean winCheck() {
 
+        if (wincheck1()) {
+            return true;
+        }
+        if (wincheck2()) {
+            return true;
+        }
+        if (wincheck3()) {
+            return true;
+        }
+        if (wincheck4()) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * wincheck1: Checks for a winner across
+     * @return true if player has won
+     */
+    private boolean wincheck1() {
         for (int column = 0; column < FOUR; column++) {
             for (int row = 0; row < ROWS; row++) {
                 if (cells[row][column].getValue() != 0
@@ -140,6 +160,14 @@ public class Grid {
                 }
             }
         }
+        return false;
+    }
+
+    /**
+     * wincheck2: Checks for a winner vertical
+     * @return true if player has won
+     */
+    private boolean wincheck2() {
         for (int column = 0; column < COLUMNS; column++) {
             for (int row = 0; row < THREE; row++) {
                 if (cells[row][column].getValue() != 0
@@ -153,6 +181,14 @@ public class Grid {
                 }
             }
         }
+        return false;
+    }
+
+    /**
+     * wincheck3: Checks for a winner diagonal
+     * @return true if player has won
+     */
+    private boolean wincheck3() {
         for (int column = 0; column < FOUR; column++) {
             for (int row = 0; row < THREE; row++) {
                 if (cells[row][column].getValue() != 0
@@ -166,6 +202,14 @@ public class Grid {
                 }
             }
         }
+        return false;
+    }
+
+    /**
+     * wincheck4: Checks for a winner diagonal2
+     * @return true if player has won
+     */
+    private boolean wincheck4() {
         for (int column = THREE; column < COLUMNS; column++) {
             for (int row = 0; row < THREE; row++) {
                 if (cells[row][column].getValue() != 0
