@@ -170,23 +170,31 @@ public class ConnectFour {
         }
         // handles input 1-7
         if (line.matches("[1-7]")) {
-            Pattern p = Pattern.compile("[1-7]");
-            Matcher m = p.matcher(line);
-            m.find();
-            int arg = Integer.parseInt(m.group());
-            arg = arg - 1;
-            int i = grid.getHeight(arg);
-            if (i == -1) {
-                return true;
-            }
-            controller.setValue(grid.getCell(i, arg));
-            log.info(grid.toString());
-            log.info(grid.getStatus().getText());
+            handleNumberInput(line);
             return true;
         }
         // in case there was no valid input
         log.warn("invalid input");
         return true;
+    }
+    
+    /**
+     * handles the inputs 1-7 and ignore all other inputs
+     * @param input: input as string
+     */
+    private void handleNumberInput(String input){
+        Pattern p = Pattern.compile("[1-7]");
+        Matcher m = p.matcher(input);
+        m.find();
+        int arg = Integer.parseInt(m.group());
+        arg = arg - 1;
+        int i = grid.getHeight(arg);
+        if (i == -1) {
+            return;
+        }
+        controller.setValue(grid.getCell(i, arg));
+        log.info(grid.toString());
+        log.info(grid.getStatus().getText());
     }
 
     /**
