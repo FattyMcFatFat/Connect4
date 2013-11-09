@@ -37,7 +37,6 @@ public class GridTest extends TestCase {
 
     public void testVaulesToString() {
         grid.reset();
-        System.out.println(grid.vaulesToString());
         assertEquals("0000000" + newLine + "0000000" + newLine + "0000000"
                 + newLine + "0000000" + newLine + "0000000" + newLine
                 + "0000000" + newLine, grid.vaulesToString());
