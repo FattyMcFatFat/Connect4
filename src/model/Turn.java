@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Class Turn storages the turns
+ * @author stgebhar
+ */
 public class Turn {
     private int turn;
 
@@ -11,16 +15,15 @@ public class Turn {
     }
 
     /**
-     * returns the turncount
-     * 
-     * @return
+     * returns the turncounter
+     * @return current turncounter
      */
     public int getTurn() {
         return turn;
     }
 
     /**
-     * increments the turncount
+     * increments the turncounter
      */
     public void incTurn() {
         turn++;
@@ -32,5 +35,4 @@ public class Turn {
     public void resetTurn() {
         turn = 0;
     }
-
 }

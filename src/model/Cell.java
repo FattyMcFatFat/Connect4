@@ -1,13 +1,16 @@
 package model;
 
+/**
+ * Class cell are the cells of the grid
+ * @author stoff
+ */
 public class Cell {
 
     private int value = 0;
 
     /**
      * sets the value v for the cell
-     * 
-     * @param v
+     * @param v value
      */
     public void setValue(int v) {
         value = v;
@@ -15,8 +18,7 @@ public class Cell {
 
     /**
      * returns the value of the cell
-     * 
-     * @return
+     * @return value of the cell
      */
     public int getValue() {
         return value;
@@ -24,15 +26,14 @@ public class Cell {
 
     /**
      * Returns true if the cell is occupied, fasle if not
-     * 
-     * @return
+     * @return if cell is set
      */
     public boolean isSet() {
         return value == 0 ? false : true;
     }
 
     /**
-     * returns a String of the form "1"
+     * returns the value as String
      */
     public String toString() {
         return "" + value;
@@ -40,8 +41,8 @@ public class Cell {
 
     /**
      * returns empty string if value is zero
-     * 
-     * @return
+     * or the value of the cell if value is != 0
+     * @return empty String if value is zero
      */
     public String toStringNoZero() {
         if (value == 0) {

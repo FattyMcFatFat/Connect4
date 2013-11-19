@@ -1,5 +1,9 @@
 package model;
 
+/**
+ * Class grid is the grid
+ * @author stgebhar
+ */
 public class Grid {
     private Cell[][] cells;
     private static final int THREE = 3;
@@ -23,41 +27,38 @@ public class Grid {
     }
 
     /**
-     * TODO: currently unsued
-     * 
-     * @param row
-     * @param column
-     * @param value
+     *  sets a value for a cell
+     * @param row row
+     * @param column column
+     * @param value value
      */
     public void setCell(int row, int column, int value) {
         cells[row][column].setValue(value);
     }
 
     /**
-     * returns a cell
-     * 
-     * @param row
-     * @param column
-     * @return
+     * returns the cell at this position
+     * @param row row
+     * @param column columns
+     * @return the Cell
      */
     public Cell getCell(int row, int column) {
         return cells[row][column];
     }
 
     /**
-     * returns the status
+     * returns the current status
      * 
-     * @return
+     * @return status
      */
     public Status getStatus() {
         return status;
     }
 
     /**
-     * returns the Height of a column or -1 if value to high
-     * 
-     * @param col
-     * @return
+     * returns the height of a column or -1 if value to high
+     * @param col column
+     * @return the height of the column
      */
     public int getHeight(int col) {
         int i = 0;
@@ -105,8 +106,7 @@ public class Grid {
 
     /**
      * returns only the cellvalues as String Used for savegames
-     * 
-     * @return
+     * @return the grid without whitespaces
      */
     public String vaulesToString() {
         StringBuffer result = new StringBuffer();
@@ -122,7 +122,6 @@ public class Grid {
 
     /**
      * checks if a player has won the game
-     * 
      * @return true if a player has won the game
      */
     public boolean winCheck() {

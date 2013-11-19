@@ -2,6 +2,10 @@ package model;
 
 import java.awt.Color;
 
+/**
+ * Class player has the settings for the two players
+ * @author stgebhar
+ */
 public class Player {
     private int player;
     private String playerOne;
@@ -39,8 +43,7 @@ public class Player {
 
     /**
      * returns the current player
-     * 
-     * @return
+     * @return 1 or 2
      */
     public int getPlayer() {
         return player;
@@ -48,8 +51,7 @@ public class Player {
 
     /**
      * return the waiting player
-     * 
-     * @return
+     * @return 1 or 2
      */
     public int getOtherPlayer() {
         if (player == PLAYER_ONE) {
@@ -61,8 +63,7 @@ public class Player {
 
     /**
      * return name of palyer1
-     * 
-     * @return
+     * @return player1 name
      */
     public String getPlayerOneName() {
         return playerOne;
@@ -70,8 +71,7 @@ public class Player {
 
     /**
      * return name of player2
-     * 
-     * @return
+     * @return player2 name
      */
     public String getPlayerTwoName() {
         return playerTwo;
@@ -79,8 +79,7 @@ public class Player {
 
     /**
      * returns the name of the current player
-     * 
-     * @return
+     * @return name of current player
      */
     public String getPlayerName() {
         if (player == PLAYER_ONE) {
@@ -92,8 +91,7 @@ public class Player {
 
     /**
      * returns the name of the wating player
-     * 
-     * @return
+     * @return name of waiting player
      */
     public String getOtherPlayerName() {
         if (player == PLAYER_ONE) {
@@ -105,9 +103,8 @@ public class Player {
 
     /**
      * sets the parameters as playernames
-     * 
-     * @param p1
-     * @param p2
+     * @param p1 new name player1
+     * @param p2 new name player2
      */
     public void setPlayerNames(String p1, String p2) {
         if (p1.equals("")) {
@@ -122,9 +119,8 @@ public class Player {
 
     /**
      * sets the Colors for the players
-     * 
-     * @param p1
-     * @param p2
+     * @param p1 new color player1
+     * @param p2 new color player2
      */
     public void setColors(Color p1, Color p2) {
         if (p1 == null) {
@@ -139,8 +135,7 @@ public class Player {
 
     /**
      * returns the current color of player one
-     * 
-     * @return
+     * @return color player1
      */
     public Color getPlayerOneColor() {
         return playerOneColor;
@@ -148,8 +143,7 @@ public class Player {
 
     /**
      * return the current color of player two
-     * 
-     * @return
+     * @return color player2
      */
     public Color getPlayerTwoColor() {
         return playerTwoColor;
@@ -157,8 +151,7 @@ public class Player {
 
     /**
      * sets hasWon = true if someone won the game
-     * 
-     * @param s
+     * @param s player who won the game
      */
     public void setWon(String s) {
         winner = s;
@@ -167,8 +160,7 @@ public class Player {
 
     /**
      * returns if someone has won the game
-     * 
-     * @return
+     * @return true if a player has won
      */
     public boolean hasWon() {
         return hasWon;
@@ -176,15 +168,14 @@ public class Player {
 
     /**
      * returns the winner
-     * 
-     * @return
+     * @return the name of the winner
      */
     public String getWinner() {
         return winner;
     }
 
     /**
-     * retets the Object
+     * retets the Object Player
      */
     public void resetPlayer() {
         hasWon = false;
