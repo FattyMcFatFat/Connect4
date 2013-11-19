@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 import model.Cell;
 import model.Player;
 
+/**
+ * class cellpanel
+ * @author stgebhar
+ */
 public class CellPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
@@ -20,8 +24,8 @@ public class CellPanel extends JPanel {
 
     /**
      * constructor
-     * 
-     * @param cell
+     * @param cell cell
+     * @param player player
      */
     public CellPanel(Cell cell, Player player) {
         this.cell = cell;
@@ -58,15 +62,11 @@ public class CellPanel extends JPanel {
             }
         }
     }
-
+    
     /**
-     * Zeichnet Kreise in der entsprechenden Farbe an der entsprechenden
-     * Position
-     * 
-     * @param g
-     * @param width
-     * @param height
-     * @param c
+     * draws circles in the color g
+     * @param g graphics
+     * @param c color
      */
     private void paintValue(Graphics g, Color c) {
 
