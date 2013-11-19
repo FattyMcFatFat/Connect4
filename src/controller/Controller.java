@@ -11,6 +11,10 @@ import model.Player;
 import model.Status;
 import model.Turn;
 
+/**
+ * Class controller extends observable
+ * @author stgebhar
+ */
 public class Controller extends Observable {
 
     private Grid grid;
@@ -25,11 +29,8 @@ public class Controller extends Observable {
 
     /**
      * Constructor
-     * 
-     * @param grid
-     *            : Grid
-     * @param player
-     *            : Player
+     * @param grid: Grid
+     * @param player: Player
      */
     public Controller(Grid grid, Player player) {
         this.grid = grid;
@@ -40,8 +41,10 @@ public class Controller extends Observable {
     }
 
     /**
-     * generates new game: -clears cells -set player to player1 -reset turn
-     * counter
+     * generates new game: 
+     * -clears cells 
+     * -set player to player1
+     * -reset turn counter
      */
     public void newGrid() {
         grid.reset();
@@ -59,11 +62,8 @@ public class Controller extends Observable {
     /**
      * sets the current player as value for the cell set value 1 if current
      * player is player 1, else 2
-     * 
      * then checks if the grid is full or a player has won the game
-     * 
-     * @param cell
-     *            : the cell to get filled
+     * @param cell: the cell to get filled
      */
     public void setValue(Cell cell) {
 
@@ -93,11 +93,8 @@ public class Controller extends Observable {
 
     /**
      * changes the payernames
-     * 
-     * @param p1
-     *            : new name of player 1
-     * @param p2
-     *            : new name of player 2
+     * @param p1: new name of player 1
+     * @param p2: new name of player 2
      */
     public void setPlayernames(String p1, String p2) {
         player.setPlayerNames(p1, p2);
@@ -107,11 +104,8 @@ public class Controller extends Observable {
     /**
      * sets the colors for the players prints an error message if colors are the
      * same
-     * 
-     * @param p1
-     *            : new color of player 1
-     * @param p2
-     *            : new color of player 2
+     * @param p1: new color of player 1
+     * @param p2: new color of player 2
      */
     public void setColors(Color p1, Color p2) {
         Color col1 = p1;
@@ -135,9 +129,7 @@ public class Controller extends Observable {
 
     /**
      * sets the grid if a savegame is loaded
-     * 
-     * @param input
-     *            saved grid as string
+     * @param input saved grid as string
      */
     public void setCellsFromLoad(String input) {
         grid.reset();
