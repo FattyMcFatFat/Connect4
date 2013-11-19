@@ -27,8 +27,6 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
     private static final long serialVersionUID = 1L;
     private static final int TEN = 10;
     private static final int FIVE = 5;
-    private JComboBox playerOneBox;
-    private JComboBox playerTwoBox;
     private JButton saveButton = new JButton("Save");
     private JButton quitButton = new JButton("Cancel");
     private JLabel label1;
@@ -38,6 +36,12 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
     private Color[] color = new Color[] { Color.BLACK, Color.LIGHT_GRAY,
             Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE,
             Color.PINK };
+    
+    // Supress Warnings because Maven gets problems otherwise
+    @SuppressWarnings("rawtypes")
+   	private JComboBox playerOneBox;
+       @SuppressWarnings("rawtypes")
+   	private JComboBox playerTwoBox;
 
     /**
      * builds the frame for colo-dialog
@@ -45,7 +49,10 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
      * @param f
      *            : Frame
      */
-    public PlayerColorDialog(JFrame f) {
+       
+    // Supress Warnings because Maven gets problems otherwise
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public PlayerColorDialog(JFrame f) {
         super(f, "Playercolors", true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         saveButton.addActionListener(this);
