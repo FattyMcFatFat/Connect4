@@ -14,6 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Class PlayerNameDialog
+ * @author stgebhar
+ *
+ */
 public class PlayerNamesDialog extends JDialog implements ActionListener {
 
     private static final long serialVersionUID = 1L;
@@ -45,6 +50,11 @@ public class PlayerNamesDialog extends JDialog implements ActionListener {
         pack();
     }
 
+    /**
+     * shows the dialog
+     * @param p1 name p1
+     * @param p2 name p2
+     */
     public void showDialog(String p1, String p2) {
         playerOneField.setText(p1);
         playerTwoField.setText(p2);
@@ -53,6 +63,9 @@ public class PlayerNamesDialog extends JDialog implements ActionListener {
         setVisible(true);
     }
 
+    /**
+     * Action Listener
+     */
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source.equals(saveButton)) {
@@ -62,11 +75,19 @@ public class PlayerNamesDialog extends JDialog implements ActionListener {
         setVisible(false);
     }
 
-    public String getLastName() {
+    /**
+     * gets playerTwo name
+     * @return
+     */
+    public String getNameTwo() {
         return playerTwo;
     }
 
-    public String getFirstName() {
+    /**
+     * gets playerOne name
+     * @return
+     */
+    public String getNameOne() {
         return playerOne;
     }
 }
