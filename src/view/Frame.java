@@ -26,11 +26,8 @@ import model.Status;
 
 /**
  * Frame for GUI
- * 
  * @author stgebhar
- * 
  */
-
 public class Frame extends JFrame implements IObserver {
 
     private static final long serialVersionUID = 1L;
@@ -49,9 +46,8 @@ public class Frame extends JFrame implements IObserver {
 
     /**
      * constructor
-     * 
-     * @param grid
-     * @param controller
+     * @param grid grid
+     * @param controller controller
      */
     public Frame(final Grid grid, final Controller controller,
             final Player player) {
@@ -95,8 +91,8 @@ public class Frame extends JFrame implements IObserver {
                 String p2 = player.getPlayerTwoName();
 
                 playerNamesDialog.showDialog(p1, p2);
-                controller.setPlayernames(playerNamesDialog.getFirstName(),
-                        playerNamesDialog.getLastName());
+                controller.setPlayernames(playerNamesDialog.getNameOne(),
+                        playerNamesDialog.getNameTwo());
 
             }
         });
@@ -163,8 +159,7 @@ public class Frame extends JFrame implements IObserver {
 
     /**
      * buildes the components
-     * 
-     * @param grid
+     * @param grid grid
      */
     public final void constructPane() {
 
@@ -185,9 +180,7 @@ public class Frame extends JFrame implements IObserver {
 
     /**
      * saves a game
-     * 
-     * @param frame
-     *            JFrame
+     * @param frame JFrame
      */
     public void saveGame(JFrame frame) {
         JFileChooser fileChooser = new JFileChooser(".");
@@ -220,9 +213,7 @@ public class Frame extends JFrame implements IObserver {
 
     /**
      * loads a saved game
-     * 
-     * @param frame
-     *            JFrame
+     * @param frame JFrame
      */
     public void loadGame(JFrame frame) {
         JFileChooser fileChooser = new JFileChooser(".");
