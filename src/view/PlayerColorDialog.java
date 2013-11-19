@@ -18,9 +18,7 @@ import javax.swing.JPanel;
 
 /**
  * The PlayerColorDialog is for changing colors of the players.
- * 
  * @author stgebhar
- * 
  */
 public class PlayerColorDialog extends JDialog implements ActionListener {
 
@@ -45,11 +43,8 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 
     /**
      * builds the frame for colo-dialog
-     * 
-     * @param f
-     *            : Frame
+     * @param f: Frame
      */
-       
     // Supress Warnings because Maven gets problems otherwise
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public PlayerColorDialog(JFrame f) {
@@ -80,15 +75,10 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
     /**
      * Show the select-color dialog. Colors of players can be changed in this
      * dialog
-     * 
-     * @param p1
-     *            : current color of player 1
-     * @param p2
-     *            : current color of player 2
-     * @param name1
-     *            : name of player 1
-     * @param name2
-     *            : name of player 2
+     * @param p1: current color of player 1
+     * @param p2: current color of player 2
+     * @param name1: name of player 1
+     * @param name2 : name of player 2
      */
     public void showDialog(Color p1, Color p2, String name1, String name2) {
         playerOneBox.setSelectedIndex(Arrays.asList(color).indexOf(p1));
@@ -118,7 +108,6 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 
     /**
      * Returns the Color of Player2
-     * 
      * @return Color Player 2
      */
     public Color getP2Color() {
@@ -127,7 +116,6 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
 
     /**
      * Returns the Color of Player1
-     * 
      * @return Color Player 1
      */
     public Color getP1Color() {

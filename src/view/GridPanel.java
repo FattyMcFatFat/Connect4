@@ -13,6 +13,10 @@ import controller.Controller;
 import model.Grid;
 import model.Player;
 
+/**
+ * class gridpanel
+ * @author stgebhar
+ */
 public class GridPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
@@ -23,9 +27,8 @@ public class GridPanel extends JPanel {
 
     /**
      * constructor
-     * 
-     * @param grid
-     * @param controller
+     * @param grid grid
+     * @param controller controller
      */
     public GridPanel(final Grid grid, final Controller controller,
             final Player player) {

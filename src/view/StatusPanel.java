@@ -7,6 +7,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
+/**
+ * class statuspanel
+ * @author stgebhar
+ */
 public class StatusPanel extends JPanel {
 
     private final JLabel statusLabel = new JLabel("");
@@ -24,8 +28,7 @@ public class StatusPanel extends JPanel {
 
     /**
      * sets a text to panel
-     * 
-     * @param text
+     * @param text text
      */
     public final void setText(final String text) {
         statusLabel.setText(" " + text);
