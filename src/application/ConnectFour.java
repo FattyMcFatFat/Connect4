@@ -118,12 +118,11 @@ public class ConnectFour {
     }
 
     /**
-     * handles the given inputvalue ---Java 1.6 cannot switch Strings---
-     * 
-     * @param line
-     *            : Input from Scanner
-     * @return: false if the input is "quit" or "exit" true if the game
-     *          continues
+     * handles the given inputvalue 
+     * ---Java 1.6 cannot switch Strings---
+     * @param line: Input from Scanner
+     * @return: false if the input is "quit" or 
+     *          "exit" true if the game continues
      */
     public boolean handleInput(String line) {
 
@@ -236,11 +235,10 @@ public class ConnectFour {
     }
 
     /**
-     * returns the Color for the given inputnumber ---java 1.6 cannot switch
-     * Strings---
-     * 
-     * @param col
-     * @return
+     * returns the Color for the given inputnumber 
+     * ---java 1.6 cannot switch Strings---
+     * @param col column
+     * @return return number of the color
      */
     private Color getColor(int col) {
         switch (col) {
@@ -284,7 +282,7 @@ public class ConnectFour {
      *       \      \                  \      \
      *        \-----/                   \-----/
      * 
-     * @param args
+     * @param args: unused
      */
     public static void main(String[] args) {
         new ConnectFour().controlLoop();
