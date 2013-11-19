@@ -27,8 +27,8 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
     private static final long serialVersionUID = 1L;
     private static final int TEN = 10;
     private static final int FIVE = 5;
-    private JComboBox<?> playerOneBox;
-    private JComboBox<?> playerTwoBox;
+    private JComboBox playerOneBox;
+    private JComboBox playerTwoBox;
     private JButton saveButton = new JButton("Save");
     private JButton quitButton = new JButton("Cancel");
     private JLabel label1;
@@ -52,8 +52,8 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
         quitButton.addActionListener(this);
         String[] colorStrings = { "Black", "Gray", "Red", "Orange", "Yellow",
                 "Green", "Blue", "Pink" };
-        playerOneBox = new JComboBox<Object>(colorStrings);
-        playerTwoBox = new JComboBox<Object>(colorStrings);
+        playerOneBox = new JComboBox(colorStrings);
+        playerTwoBox = new JComboBox(colorStrings);
         JPanel panelN = new JPanel(new GridLayout(0, 2, FIVE, FIVE));
         label1 = new JLabel("Player 1", JLabel.RIGHT);
         panelN.add(label1);
