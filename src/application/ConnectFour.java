@@ -199,30 +199,30 @@ public class ConnectFour {
     /**
      * prints the help with all available TUI inputs to console
      * 
-     * log.info("Possible TUI-input:");
-     *   log.info("\t [1-7]: the column you want to put in your token");
-     *   log.info("\t n1[Name]: change the name of Player 1");
-     *   log.info("\t n2[Name]: change the name of Player 2");
-     *   log.info("\t c1[ColorNumber]: change the color of Player 1");
-     *   log.info("\t c2[ColorNumber]: change the color of Player 2");
-     *   log.info("\t --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink");
-     *   log.info("\t help: request help");
-     *   log.info("\t new: start a new game");
-     *   log.info("\t quit: exit the game");
+     *  log.info("\t \t  _________________________________________________________________________________________");
+     *  log.info("\t  __\t / It seems like you need help with TUI-commands:                                          \\");
+     *  log.info("\t /  \\\t |                                                                                         |");
+     *  log.info("\t |  |\t | n1[Name]: change the name of Player 1                                                   |");
+     *  log.info("\t @  @\t | n2[Name]: change the name of Player 2                                                   |");
+     *  log.info("\t || ||\t | c1[ColorNumber]: change the color of Player 1                                           |");
+     *  log.info("\t || ||\t<= c2[ColorNumber]: change the color of Player 2                                           |");
+     *  log.info("\t |\\_/|\t | --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink |");
+     *  log.info("\t \\___/\t | new: start a new game                                                                   |");
+     *  log.info("\t \t | quit: exit the game                                                                     |");
+     *  log.info("\t \t  \\________________________________________________________________________________________/");
      */
     private void printHelpMessage() {
 
-        log.info("\t \t  _________________________________________________________________________________________");
-        log.info("\t  __\t / It seems like you need help with TUI-commands:                                          \\");
-        log.info("\t /  \\\t |                                                                                         |");
-        log.info("\t |  |\t | n1[Name]: change the name of Player 1                                                   |");
-        log.info("\t @  @\t | n2[Name]: change the name of Player 2                                                   |");
-        log.info("\t || ||\t | c1[ColorNumber]: change the color of Player 1                                           |");
-        log.info("\t || ||\t<= c2[ColorNumber]: change the color of Player 2                                           |");
-        log.info("\t |\\_/|\t | --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink |");
-        log.info("\t \\___/\t | new: start a new game                                                                   |");
-        log.info("\t \t | quit: exit the game                                                                     |");
-        log.info("\t \t  \\________________________________________________________________________________________/");
+        log.info("Possible TUI-input:");
+        log.info("\t [1-7]: the column you want to put in your token");
+        log.info("\t n1[Name]: change the name of Player 1");
+        log.info("\t n2[Name]: change the name of Player 2");
+        log.info("\t c1[ColorNumber]: change the color of Player 1");
+        log.info("\t c2[ColorNumber]: change the color of Player 2");
+        log.info("\t --Available colors: 1=Black, 2=Gray, 3=Red, 4=Orange, 5=Yellow, 6=Green, 7=Blue, 8=Pink");
+        log.info("\t help: request help");
+        log.info("\t new: start a new game");
+        log.info("\t quit: exit the game");
     }
     
     /**
