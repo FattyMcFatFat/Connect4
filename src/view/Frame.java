@@ -41,7 +41,6 @@ public class Frame extends JFrame implements IObserver {
     private PlayerColorDialog playerColorDialog;
     private static final int WIDTH = 528;
     private static final int HEIGH = 630;
-
     private Container pane;
 
     /**

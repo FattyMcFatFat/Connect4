@@ -35,7 +35,9 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
             Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE,
             Color.PINK };
     
-    // Supress Warnings because Maven gets problems otherwise
+    /**
+     *  Supress Warnings because Maven gets problems otherwise
+     */
     @SuppressWarnings("rawtypes")
    	private JComboBox playerOneBox;
        @SuppressWarnings("rawtypes")
@@ -44,8 +46,9 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
     /**
      * builds the frame for colo-dialog
      * @param f: Frame
+     *
+     * Supress Warnings because Maven gets problems otherwise
      */
-    // Supress Warnings because Maven gets problems otherwise
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public PlayerColorDialog(JFrame f) {
         super(f, "Playercolors", true);

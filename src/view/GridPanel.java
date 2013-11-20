@@ -50,8 +50,13 @@ public class GridPanel extends JPanel {
             }
         }
 
-        // Mouse Listener
+        /**
+         * MouseListener for GUI
+         */
         addMouseListener(new MouseAdapter() {
+            /**
+             * mouseListener
+             */
             public void mouseClicked(MouseEvent e) {
                 int clicked = e.getX();
                 int width = (int) getSize().getWidth();

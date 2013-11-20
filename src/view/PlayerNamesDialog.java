@@ -31,6 +31,10 @@ public class PlayerNamesDialog extends JDialog implements ActionListener {
     private String playerOne = "";
     private String playerTwo = "";
 
+    /**
+     * constructor
+     * @param f Frame
+     */
     public PlayerNamesDialog(JFrame f) {
         super(f, "Playernames", true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
