@@ -65,9 +65,14 @@ public class Frame extends JFrame implements IObserver {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
 
-        // name game menu
+        /**
+         * New Game Menu
+         */
         JMenuItem newMenuItem = new JMenuItem("New game");
         newMenuItem.addActionListener(new ActionListener() {
+            /**
+             * New Game ActionListener
+             */
             public void actionPerformed(ActionEvent e) {
                 int n = JOptionPane.showConfirmDialog(null, "Are you sure?",
                         "Creating a new game", JOptionPane.YES_NO_OPTION);
