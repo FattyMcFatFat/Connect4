@@ -85,12 +85,19 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.add(newMenuItem);
         fileMenu.addSeparator();
 
-        // options menu
+        /**
+         * Options menu
+         */
         JMenu optionsMenuItem = new JMenu("Options");
 
-        // options-submenu playernames
+        /**
+         *  options-submenu playernames
+         */
         JMenuItem playerSettings = new JMenuItem("Set Playernames");
         playerSettings.addActionListener(new ActionListener() {
+            /**
+             * ActionListener for SetPlayernames
+             */
             public void actionPerformed(ActionEvent e) {
                 String p1 = player.getPlayerOneName();
                 String p2 = player.getPlayerTwoName();
@@ -102,9 +109,14 @@ public class Frame extends JFrame implements IObserver {
             }
         });
 
-        // options-submenu colors
+        /**
+         *  options-submenu colors
+         */
         JMenuItem colorSettings = new JMenuItem("Set Colors");
         colorSettings.addActionListener(new ActionListener() {
+            /**
+             * ActionListener for colors
+             */
             public void actionPerformed(ActionEvent e) {
                 String p1 = player.getPlayerOneName();
                 String p2 = player.getPlayerTwoName();
@@ -121,18 +133,28 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.add(optionsMenuItem);
         fileMenu.addSeparator();
 
-        // save menu
+        /**
+         *  save menu
+         */
         JMenuItem saveMenuItem = new JMenuItem("Save Game");
         saveMenuItem.addActionListener(new ActionListener() {
+            /**
+             * ActionListener savegame
+             */
             public void actionPerformed(ActionEvent event) {
                 saveGame(Frame.this);
             }
         });
         fileMenu.add(saveMenuItem);
 
-        // load menu
+        /**
+         *  load menu
+         */
         JMenuItem loadMenuItem = new JMenuItem("Load Game");
         loadMenuItem.addActionListener(new ActionListener() {
+            /**
+             * ActionListener loadgame
+             */
             public void actionPerformed(ActionEvent event) {
                 loadGame(Frame.this);
             }
@@ -140,9 +162,14 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.add(loadMenuItem);
         fileMenu.addSeparator();
 
-        // quit menu
+        /**
+         *  quit menu
+         */
         JMenuItem quitMenuItem = new JMenuItem("Quit");
         quitMenuItem.addActionListener(new ActionListener() {
+            /**
+             * ActionListener quit menu
+             */
             public void actionPerformed(ActionEvent event) {
                 int n = JOptionPane.showConfirmDialog(null, "Are you sure?",
                         "Quit game", JOptionPane.YES_NO_OPTION);
