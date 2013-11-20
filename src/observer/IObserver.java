@@ -5,6 +5,10 @@ package observer;
  * @author stgebhar
  */
 public interface IObserver {
+    
+    /**
+     * update for observers
+     */
     void update();
 
 }

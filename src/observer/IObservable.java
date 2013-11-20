@@ -6,6 +6,14 @@ package observer;
  */
 public interface IObservable {
 
+    /**
+     * adds an Observer
+     * @param s
+     */
     void addObserver(IObserver s);
+    
+    /**
+     * notfities all observers
+     */
     void notifyObservers();
 }
