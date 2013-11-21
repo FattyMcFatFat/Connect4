@@ -14,6 +14,7 @@ public class Player {
     private Color playerTwoColor;
     private String winner;
     private boolean hasWon;
+    private boolean winnerMessageHasBeenShown = false;
     private static final int PLAYER_ONE = 1;
     private static final int PLAYER_TWO = 2;
 
@@ -180,5 +181,21 @@ public class Player {
     public void resetPlayer() {
         hasWon = false;
         winner = "";
+    }
+    
+    /**
+     * getter for winnerMessageHasBeenShown
+     * @return true if message has already been displayed once
+     */
+    public boolean getWinnerMessageHasBeenShown(){
+    	return winnerMessageHasBeenShown;
+    }
+    
+    /**
+     * Message should only be displayed once
+     * If shown this is set true
+     */
+    public void setWinnerMessageHasBeenShown(boolean bool){
+    	winnerMessageHasBeenShown = bool;
     }
 }

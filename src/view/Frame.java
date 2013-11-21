@@ -48,8 +48,7 @@ public class Frame extends JFrame implements IObserver {
      * @param grid grid
      * @param controller controller
      */
-    public Frame(final Grid grid, final Controller controller,
-            final Player player) {
+    public Frame(final Grid grid, final Controller controller,final Player player) {
         this.status = grid.getStatus();
         this.controller = controller;
         this.player = player;
@@ -209,7 +208,7 @@ public class Frame extends JFrame implements IObserver {
         repaint();
     }
 
-    /**
+	/**
      * saves a game
      * @param frame JFrame
      */
@@ -278,5 +277,29 @@ public class Frame extends JFrame implements IObserver {
     public void update() {
         statusPanel.setText(status.getText());
         repaint();
+        if(player.hasWon() && !player.getWinnerMessageHasBeenShown()){
+        	showWinMessage();
+        }
     }
+    
+    /**
+     * shows a message if a player has won the game
+     */
+    private void showWinMessage(){
+    	
+    	String message = "Player " + player.getWinner() + " has won the game!";
+    	String title = "Player " + player.getWinner() + " has won!";
+    	
+    	Object[] options = {"Continue playing", "Start new game", "Exit"};
+    	int n = JOptionPane.showOptionDialog(null,message, title,
+					JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,
+					null, options, options[2]);
+    	player.setWinnerMessageHasBeenShown(true);
+    	if(n == 1){
+    		controller.newGrid();
+    	} else if(n == 2){
+    		controller.doExit();
+    	}
+    }
+    
 }

@@ -52,6 +52,7 @@ public class Controller extends Observable {
             player.changePlayer();
         }
         player.resetPlayer();
+        player.setWinnerMessageHasBeenShown(false);
         turn.resetTurn();
         status.setText("A new Game was created");
         log.info(grid.toString());
