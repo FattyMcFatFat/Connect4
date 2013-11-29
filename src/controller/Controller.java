@@ -24,7 +24,6 @@ public class Controller extends Observable {
     private Turn turn;
     private Globals gv;
     private Logger log = Logger.getLogger(Controller.class);
-    private static final int FIVE = 5;
 
     /**
      * Constructor

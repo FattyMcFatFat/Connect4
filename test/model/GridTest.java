@@ -11,13 +11,15 @@ import junit.framework.TestCase;
  */
 public class GridTest extends TestCase {
     private Grid grid;
+    private Globals gv;
     private static final String newLine = "\n";
     private static final String sepLine = "|---+---+---+---+---+---+---|";
     private static final String NumberLine = "|   |   |   |   |   |   |   | ";
 
     @Override
     protected void setUp() {
-        grid = new Grid(true);
+    	gv = new Globals(6, 7);
+        grid = new Grid(true, gv);
     }
 
     public void testToString() {
