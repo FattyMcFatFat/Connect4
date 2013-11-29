@@ -81,11 +81,11 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.addSeparator();
 
         // save menu
-        final JMenuItem saveMenuItem = createSaveMenu();
+        JMenuItem saveMenuItem = createSaveMenu();
         fileMenu.add(saveMenuItem);
 
         // load menu
-        final JMenuItem loadMenuItem = createLoadMenu();
+        JMenuItem loadMenuItem = createLoadMenu();
         fileMenu.add(loadMenuItem);
         fileMenu.addSeparator();
 
@@ -126,7 +126,7 @@ public class Frame extends JFrame implements IObserver {
 	 * createLoadMenuItem
 	 * @param loadMenuItem
 	 */
-	private JMenuItem createLoadMenu() {
+	private final JMenuItem createLoadMenu() {
 		JMenuItem loadMenuItem = new JMenuItem("Load Game");
 		loadMenuItem.addActionListener(new ActionListener() {
             /**
@@ -143,7 +143,7 @@ public class Frame extends JFrame implements IObserver {
 	 * createSaveMenuItem
 	 * @param saveMenuItem
 	 */
-	private JMenuItem createSaveMenu() {
+	private final JMenuItem createSaveMenu() {
 		JMenuItem saveMenuItem = new JMenuItem("Save Game");
 		saveMenuItem.addActionListener(new ActionListener() {
             /**
