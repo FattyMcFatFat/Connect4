@@ -16,6 +16,7 @@ public class Grid {
 
     /**
      * constructor
+     * @param isTest true is UnitTestCase, else false
      */
     public Grid(boolean isTest) {
     	isTestGrid = isTest;
@@ -227,6 +228,10 @@ public class Grid {
         return false;
     }
     
+    /**
+     * checks if lauched by UnitTests
+     * @return true if UnitTestCase; else false
+     */
     public boolean getIsTest(){
     	return isTestGrid;
     }
