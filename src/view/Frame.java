@@ -81,11 +81,11 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.addSeparator();
 
         // save menu
-        JMenuItem saveMenuItem = createSaveMenu();
+        final JMenuItem saveMenuItem = createSaveMenu();
         fileMenu.add(saveMenuItem);
 
         // load menu
-        JMenuItem loadMenuItem = createLoadMenu();
+        final JMenuItem loadMenuItem = createLoadMenu();
         fileMenu.add(loadMenuItem);
         fileMenu.addSeparator();
 
