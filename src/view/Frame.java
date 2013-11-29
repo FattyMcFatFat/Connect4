@@ -81,13 +81,11 @@ public class Frame extends JFrame implements IObserver {
         fileMenu.addSeparator();
 
         // save menu
-        JMenuItem saveMenuItem = new JMenuItem("Save Game");
-        createSaveMenu(saveMenuItem);
+        JMenuItem saveMenuItem = createSaveMenu();
         fileMenu.add(saveMenuItem);
 
         // load menu
-        JMenuItem loadMenuItem = new JMenuItem("Load Game");
-        createLoadMenu(loadMenuItem);
+        JMenuItem loadMenuItem = createLoadMenu();
         fileMenu.add(loadMenuItem);
         fileMenu.addSeparator();
 
@@ -128,7 +126,8 @@ public class Frame extends JFrame implements IObserver {
 	 * createLoadMenuItem
 	 * @param loadMenuItem
 	 */
-	private void createLoadMenu(JMenuItem loadMenuItem) {
+	private JMenuItem createLoadMenu() {
+		JMenuItem loadMenuItem = new JMenuItem("Load Game");
 		loadMenuItem.addActionListener(new ActionListener() {
             /**
              * ActionListener loadgame
@@ -137,13 +136,15 @@ public class Frame extends JFrame implements IObserver {
                 loadGame(Frame.this);
             }
         });
+		return loadMenuItem;
 	}
 
 	/**
 	 * createSaveMenuItem
 	 * @param saveMenuItem
 	 */
-	private void createSaveMenu(JMenuItem saveMenuItem) {
+	private JMenuItem createSaveMenu() {
+		JMenuItem saveMenuItem = new JMenuItem("Save Game");
 		saveMenuItem.addActionListener(new ActionListener() {
             /**
              * ActionListener savegame
@@ -152,6 +153,7 @@ public class Frame extends JFrame implements IObserver {
                 saveGame(Frame.this);
             }
         });
+		return saveMenuItem;
 	}
 
 	/**
