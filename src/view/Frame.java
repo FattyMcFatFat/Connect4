@@ -63,54 +63,103 @@ public class Frame extends JFrame implements IObserver {
         JMenuBar menuBar = new JMenuBar();
         JMenu fileMenu = new JMenu("File");
 
-        /**
-         * New Game Menu
-         */
-        JMenuItem newMenuItem = new JMenuItem("New game");
-        newMenuItem.addActionListener(new ActionListener() {
-            /**
-             * New Game ActionListener
-             */
-            public void actionPerformed(ActionEvent e) {
-                int n = JOptionPane.showConfirmDialog(null, "Are you sure?",
-                        "Creating a new game", JOptionPane.YES_NO_OPTION);
-                if (n == JOptionPane.YES_OPTION) {
-                    controller.newGrid();
-                }
-            }
-        });
-
+        // new game menu
+        JMenuItem newMenuItem = createNewMenu();
         fileMenu.add(newMenuItem);
         fileMenu.addSeparator();
 
-        /**
-         * Options menu
-         */
+        // options menu
         JMenu optionsMenuItem = new JMenu("Options");
+        // playername submenu
+        JMenuItem playerSettings = createPlayerNameMenu();
+        // color submenu
+        JMenuItem colorSettings = createColorMenu();
+        optionsMenuItem.add(playerSettings);
+        optionsMenuItem.add(colorSettings);
 
-        /**
-         *  options-submenu playernames
-         */
-        JMenuItem playerSettings = new JMenuItem("Set Playernames");
-        playerSettings.addActionListener(new ActionListener() {
+        fileMenu.add(optionsMenuItem);
+        fileMenu.addSeparator();
+
+        // save menu
+        JMenuItem saveMenuItem = new JMenuItem("Save Game");
+        createSaveMenu(saveMenuItem);
+        fileMenu.add(saveMenuItem);
+
+        // load menu
+        JMenuItem loadMenuItem = new JMenuItem("Load Game");
+        createLoadMenu(loadMenuItem);
+        fileMenu.add(loadMenuItem);
+        fileMenu.addSeparator();
+
+        // exit menu
+        JMenuItem quitMenuItem = new JMenuItem("Quit");
+        createQuitMenu(quitMenuItem);
+        fileMenu.add(quitMenuItem);
+        menuBar.add(fileMenu);
+        setJMenuBar(menuBar);
+
+        playerNamesDialog = new PlayerNamesDialog(this);
+        playerColorDialog = new PlayerColorDialog(this);
+
+        constructPane();
+    }
+
+    /**
+     * createExitMenuItem
+     * @param quitMenuItem
+     */
+	private void createQuitMenu(JMenuItem quitMenuItem) {
+		quitMenuItem.addActionListener(new ActionListener() {
             /**
-             * ActionListener for SetPlayernames
+             * ActionListener quit menu
              */
-            public void actionPerformed(ActionEvent e) {
-                String p1 = player.getPlayerOneName();
-                String p2 = player.getPlayerTwoName();
-
-                playerNamesDialog.showDialog(p1, p2);
-                controller.setPlayernames(playerNamesDialog.getNameOne(),
-                        playerNamesDialog.getNameTwo());
+            public void actionPerformed(ActionEvent event) {
+                int n = JOptionPane.showConfirmDialog(null, "Are you sure?",
+                        "Quit game", JOptionPane.YES_NO_OPTION);
+                if (n == JOptionPane.YES_OPTION) {
+                    controller.doExit();
+                }
 
             }
         });
+	}
 
-        /**
-         *  options-submenu colors
-         */
-        JMenuItem colorSettings = new JMenuItem("Set Colors");
+	/**
+	 * createLoadMenuItem
+	 * @param loadMenuItem
+	 */
+	private void createLoadMenu(JMenuItem loadMenuItem) {
+		loadMenuItem.addActionListener(new ActionListener() {
+            /**
+             * ActionListener loadgame
+             */
+            public void actionPerformed(ActionEvent event) {
+                loadGame(Frame.this);
+            }
+        });
+	}
+
+	/**
+	 * createSaveMenuItem
+	 * @param saveMenuItem
+	 */
+	private void createSaveMenu(JMenuItem saveMenuItem) {
+		saveMenuItem.addActionListener(new ActionListener() {
+            /**
+             * ActionListener savegame
+             */
+            public void actionPerformed(ActionEvent event) {
+                saveGame(Frame.this);
+            }
+        });
+	}
+
+	/**
+	 * createColorMenu
+	 * @return JMenuItem
+	 */
+	private JMenuItem createColorMenu() {
+		JMenuItem colorSettings = new JMenuItem("Set Colors");
         colorSettings.addActionListener(new ActionListener() {
             /**
              * ActionListener for colors
@@ -125,67 +174,52 @@ public class Frame extends JFrame implements IObserver {
                         playerColorDialog.getP2Color());
             }
         });
-        optionsMenuItem.add(playerSettings);
-        optionsMenuItem.add(colorSettings);
+		return colorSettings;
+	}
 
-        fileMenu.add(optionsMenuItem);
-        fileMenu.addSeparator();
-
-        /**
-         *  save menu
-         */
-        JMenuItem saveMenuItem = new JMenuItem("Save Game");
-        saveMenuItem.addActionListener(new ActionListener() {
+	/**
+	 * createOptionsMenu
+	 * @return JMenuItem
+	 */
+	private JMenuItem createPlayerNameMenu() {
+		JMenuItem playerSettings = new JMenuItem("Set Playernames");
+        playerSettings.addActionListener(new ActionListener() {
             /**
-             * ActionListener savegame
+             * ActionListener for SetPlayernames
              */
-            public void actionPerformed(ActionEvent event) {
-                saveGame(Frame.this);
+            public void actionPerformed(ActionEvent e) {
+                String p1 = player.getPlayerOneName();
+                String p2 = player.getPlayerTwoName();
+
+                playerNamesDialog.showDialog(p1, p2);
+                controller.setPlayernames(playerNamesDialog.getNameOne(),
+                        playerNamesDialog.getNameTwo());
+
             }
         });
-        fileMenu.add(saveMenuItem);
+		return playerSettings;
+	}
 
-        /**
-         *  load menu
-         */
-        JMenuItem loadMenuItem = new JMenuItem("Load Game");
-        loadMenuItem.addActionListener(new ActionListener() {
+	/**
+	 * new game menu
+	 * @return JMenuItem
+	 */
+	private JMenuItem createNewMenu() {
+		JMenuItem newMenuItem = new JMenuItem("New game");
+        newMenuItem.addActionListener(new ActionListener() {
             /**
-             * ActionListener loadgame
+             * New Game ActionListener
              */
-            public void actionPerformed(ActionEvent event) {
-                loadGame(Frame.this);
-            }
-        });
-        fileMenu.add(loadMenuItem);
-        fileMenu.addSeparator();
-
-        /**
-         *  quit menu
-         */
-        JMenuItem quitMenuItem = new JMenuItem("Quit");
-        quitMenuItem.addActionListener(new ActionListener() {
-            /**
-             * ActionListener quit menu
-             */
-            public void actionPerformed(ActionEvent event) {
+            public void actionPerformed(ActionEvent e) {
                 int n = JOptionPane.showConfirmDialog(null, "Are you sure?",
-                        "Quit game", JOptionPane.YES_NO_OPTION);
+                        "Creating a new game", JOptionPane.YES_NO_OPTION);
                 if (n == JOptionPane.YES_OPTION) {
-                    controller.doExit();
+                    controller.newGrid();
                 }
-
             }
         });
-        fileMenu.add(quitMenuItem);
-        menuBar.add(fileMenu);
-        setJMenuBar(menuBar);
-
-        playerNamesDialog = new PlayerNamesDialog(this);
-        playerColorDialog = new PlayerColorDialog(this);
-
-        constructPane();
-    }
+		return newMenuItem;
+	}
 
     /**
      * buildes the components
