@@ -12,11 +12,13 @@ public class Grid {
     private static final int ROWS = 6;
     private static final int COLUMNS = 7;
     private Status status = new Status();
+    private boolean isTestGrid;
 
     /**
      * constructor
      */
-    public Grid() {
+    public Grid(boolean isTest) {
+    	isTestGrid = isTest;
         cells = new Cell[ROWS][COLUMNS];
 
         for (int row = 0; row < ROWS; row++) {
@@ -223,5 +225,9 @@ public class Grid {
             }
         }
         return false;
+    }
+    
+    public boolean getIsTest(){
+    	return isTestGrid;
     }
 }

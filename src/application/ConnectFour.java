@@ -87,9 +87,10 @@ public class ConnectFour {
 
     /**
      * constructor
+     * @param isTest true when using unit test; else false
      */
-    public ConnectFour() {
-        grid = new Grid();
+    public ConnectFour(boolean isTest) {
+        grid = new Grid(isTest);
         Player player = new Player();
         controller = new Controller(grid, player);
         frame = new Frame(grid, controller, player);
@@ -298,7 +299,7 @@ public class ConnectFour {
      * @param args: unused
      */
     public static void main(String[] args) {
-        new ConnectFour().controlLoop();
+        new ConnectFour(false).controlLoop();
 
     }
 

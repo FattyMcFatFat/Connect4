@@ -273,11 +273,12 @@ public class Frame extends JFrame implements IObserver {
 
     /**
      * update / repaint
+     * prints a win-message if someone won the game
      */
     public void update() {
         statusPanel.setText(status.getText());
         repaint();
-        if(player.hasWon() && !player.getWinnerMessageHasBeenShown()){
+        if(player.hasWon() && !player.getWinnerMessageHasBeenShown() && !grid.getIsTest()){
         	showWinMessage();
         }
     }

@@ -17,7 +17,7 @@ public class GridTest extends TestCase {
 
     @Override
     protected void setUp() {
-        grid = new Grid();
+        grid = new Grid(true);
     }
 
     public void testToString() {

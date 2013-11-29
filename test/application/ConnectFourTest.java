@@ -9,7 +9,7 @@ public class ConnectFourTest extends TestCase {
 
     @Override
     public void setUp() {
-        c4 = new ConnectFour();
+        c4 = new ConnectFour(true);
     }
 
     public void testHandleInputQuit() {

@@ -14,7 +14,7 @@ public class ControllerTest extends TestCase {
     @Override
     protected void setUp() {
 
-        grid = new Grid();
+        grid = new Grid(true);
         player = new Player();
         controller = new Controller(grid, player);
     }
