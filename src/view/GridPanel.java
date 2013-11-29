@@ -10,6 +10,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 import controller.Controller;
+import model.Globals;
 import model.Grid;
 import model.Player;
 
@@ -20,10 +21,6 @@ import model.Player;
 public class GridPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private static final int MAX_TURNS = 42;
-    private static final int FIVE = 5;
-    private static final int ROWS = 6;
-    private static final int COLUMNS = 7;
 
     /**
      * constructor
@@ -31,18 +28,18 @@ public class GridPanel extends JPanel {
      * @param controller controller
      */
     public GridPanel(final Grid grid, final Controller controller,
-            final Player player) {
-        setLayout(new GridLayout(ROWS, COLUMNS, 2, 2));
+            final Player player, final Globals gv) {
+        setLayout(new GridLayout(gv.ROW_SIZE, gv.COL_SIZE, 2, 2));
         setBorder(BorderFactory.createLoweredBevelBorder());
-        BlockPanel[] block = new BlockPanel[MAX_TURNS];
+        BlockPanel[] block = new BlockPanel[gv.MAX_TURNS];
 
-        for (int index = 0; index < MAX_TURNS; index++) {
+        for (int index = 0; index < gv.MAX_TURNS; index++) {
             block[index] = new BlockPanel(1);
             add(block[index]);
         }
         int i = 0;
-        for (int row = FIVE; row >= 0; row--) {
-            for (int column = 0; column < COLUMNS; column++) {
+        for (int row = (gv.ROW_SIZE-1); row >= 0; row--) {
+            for (int column = 0; column < gv.COL_SIZE; column++) {
                 CellPanel cellPanel = new CellPanel(grid.getCell(row, column),
                         player);
                 block[i].add(cellPanel);
@@ -60,7 +57,7 @@ public class GridPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 int clicked = e.getX();
                 int width = (int) getSize().getWidth();
-                int split = (int) (COLUMNS * ((double) clicked / (double) width));
+                int split = (int) (gv.COL_SIZE * ((double) clicked / (double) width));
                 if (grid.getHeight(split) != -1) {
                     controller.setValue(grid.getCell(grid.getHeight(split),
                             split));

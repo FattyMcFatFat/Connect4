@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 
 import controller.Controller;
 import view.Frame;
+import model.Globals;
 import model.Grid;
 import model.Player;
 
@@ -75,6 +76,7 @@ public class ConnectFour {
     private Grid grid;
     private Controller controller;
     private Frame frame;
+    private Globals gv;
     private Logger log = Logger.getLogger(ConnectFour.class);
     private static final int BLACK = 1;
     private static final int LIGHT_GRAY = 2;
@@ -90,10 +92,11 @@ public class ConnectFour {
      * @param isTest true when using unit test; else false
      */
     public ConnectFour(boolean isTest) {
-        grid = new Grid(isTest);
+    	gv = new Globals(6, 7);
+        grid = new Grid(isTest, gv);
         Player player = new Player();
-        controller = new Controller(grid, player);
-        frame = new Frame(grid, controller, player);
+        controller = new Controller(grid, player, gv);
+        frame = new Frame(grid, controller, player, gv);
         controller.addObserver(frame);
 
     }

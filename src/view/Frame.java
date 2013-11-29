@@ -20,6 +20,7 @@ import javax.swing.JOptionPane;
 
 import controller.Controller;
 import observer.IObserver;
+import model.Globals;
 import model.Grid;
 import model.Player;
 import model.Status;
@@ -35,6 +36,7 @@ public class Frame extends JFrame implements IObserver {
     private Status status;
     private Player player;
     private Grid grid;
+    private Globals gv;
     private StatusPanel statusPanel;
     private GridPanel gridPanel;
     private PlayerNamesDialog playerNamesDialog;
@@ -48,11 +50,12 @@ public class Frame extends JFrame implements IObserver {
      * @param grid grid
      * @param controller controller
      */
-    public Frame(final Grid grid, final Controller controller,final Player player) {
+    public Frame(final Grid grid, final Controller controller,final Player player, Globals globals) {
         this.status = grid.getStatus();
         this.controller = controller;
         this.player = player;
         this.grid = grid;
+        this.gv = globals;
 
         setTitle("Vier Gewinnt");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -214,7 +217,7 @@ public class Frame extends JFrame implements IObserver {
         if (gridPanel != null) {
             pane.remove(gridPanel);
         }
-        gridPanel = new GridPanel(grid, controller, player);
+        gridPanel = new GridPanel(grid, controller, player, gv);
         pane.add(gridPanel, BorderLayout.CENTER);
 
         if (statusPanel != null) {
