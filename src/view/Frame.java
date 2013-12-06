@@ -41,6 +41,7 @@ public class Frame extends JFrame implements IObserver {
     private GridPanel gridPanel;
     private PlayerNamesDialog playerNamesDialog;
     private PlayerColorDialog playerColorDialog;
+    private GridSizeDialog gridSizeDialoag;
     private static final int WIDTH = 528;
     private static final int HEIGH = 630;
     private Container pane;
@@ -77,8 +78,13 @@ public class Frame extends JFrame implements IObserver {
         JMenuItem playerSettings = createPlayerNameMenu();
         // color submenu
         JMenuItem colorSettings = createColorMenu();
+        
+        // gridSize submenu
+        JMenuItem gridSettings = createGridMenu();
+        
         optionsMenuItem.add(playerSettings);
         optionsMenuItem.add(colorSettings);
+        optionsMenuItem.add(gridSettings);
 
         fileMenu.add(optionsMenuItem);
         fileMenu.addSeparator();
@@ -117,11 +123,28 @@ public class Frame extends JFrame implements IObserver {
 
         playerNamesDialog = new PlayerNamesDialog(this);
         playerColorDialog = new PlayerColorDialog(this);
+        gridSizeDialoag = new GridSizeDialog(this, gv);
 
         constructPane();
     }
 
-    /**
+    private JMenuItem createGridMenu() {
+    	JMenuItem gridSettings = new JMenuItem("Set Gridsize");
+    	gridSettings.addActionListener(new ActionListener() {
+            /**
+             * ActionListener for SetPlayernames
+             */
+            public void actionPerformed(ActionEvent e) {
+            	gridSizeDialoag.showDialog();
+                int newColSize = gridSizeDialoag.getColumnSize();
+                int newRowSize = gridSizeDialoag.getRowSize();
+                System.out.println(newColSize + " " + newRowSize);
+            }
+        });
+		return gridSettings;
+	}
+
+	/**
      * createExitMenuItem
      * @param quitMenuItem
      */

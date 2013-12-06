@@ -92,7 +92,7 @@ public class ConnectFour {
      * @param isTest true when using unit test; else false
      */
     public ConnectFour(boolean isTest) {
-    	gv = new Globals(6, 7);
+    	gv = new Globals(8, 8);
         grid = new Grid(isTest, gv);
         Player player = new Player();
         controller = new Controller(grid, player, gv);
@@ -172,7 +172,8 @@ public class ConnectFour {
             return true;
         }
         // handles input 1-7
-        if (line.matches("[1-7]")) {
+        String validLines = "[1-" + gv.COL_SIZE + "]";
+        if (line.matches(validLines)) {
             handleNumberInput(line);
             return true;
         }
@@ -186,7 +187,7 @@ public class ConnectFour {
      * @param input: input as string
      */
     private void handleNumberInput(String input){
-        Pattern p = Pattern.compile("[1-7]");
+        Pattern p = Pattern.compile("[1-9]");
         Matcher m = p.matcher(input);
         m.find();
         int arg = Integer.parseInt(m.group());

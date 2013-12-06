@@ -90,7 +90,11 @@ public class Grid {
      */
     public String toString() {
         StringBuffer result = new StringBuffer();
-        result.append("|---+---+---+---+---+---+---|\n");
+        result.append("+");
+        for (int i = 0; i < gv.NEW_ROW_SIZE; i++) {
+			result.append("---+");
+		}
+        result.append("\n");
         for (int row = (gv.ROW_SIZE-1); row >= 0; row--) {
             result.append("| ");
             for (int column = 0; column < gv.COL_SIZE; column++) {
@@ -100,7 +104,10 @@ public class Grid {
                 result.append(" ");
             }
             result.append("\n");
-            result.append("|---+---+---+---+---+---+---|");
+            result.append("+");
+            for (int i = 0; i < gv.NEW_ROW_SIZE; i++) {
+    			result.append("---+");
+    		}
             result.append("\n");
 
         }
