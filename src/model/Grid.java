@@ -220,7 +220,7 @@ public class Grid {
      * @return true if player has won
      */
     private boolean wincheck4() {
-        for (int column = (gv.COL_SIZE-FOUR); column < gv.COL_SIZE; column++) {
+        for (int column = THREE; column < gv.COL_SIZE; column++) {
             for (int row = 0; row < (gv.ROW_SIZE-THREE); row++) {
                 if (cells[row][column].getValue() != 0
                         && cells[row][column].getValue() == cells[row + 1][column - 1]
