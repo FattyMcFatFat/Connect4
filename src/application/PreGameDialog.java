@@ -19,14 +19,13 @@ public class PreGameDialog extends JDialog implements ActionListener{
 	private static final long serialVersionUID = 1L;
     private static final int TEN = 10;
     private static final int FIVE = 5;
-    private JButton saveButton = new JButton("Save");
-    private JButton quitButton = new JButton("Cancel");
+    private JButton goButton = new JButton("GOOOOOOO");
     private JLabel label1;
     private JLabel label2;
     private int selectedColSize;
     private int selectedRowSize;
-    private int[] availableSizes = new int[] { 5, 6, 7, 8, 9 };
-    private String[] availableSizesAsStrings = new String[] { "5", "6", "7", "8", "9" };
+    private int[] availableSizes = new int[] { 4, 5, 6, 7, 8, 9 };
+    private String[] availableSizesAsStrings = new String[] {"4", "5", "6", "7", "8", "9" };
     
     // Supress Warnings because Maven gets problems otherwise
     @SuppressWarnings("rawtypes")
@@ -38,8 +37,7 @@ public class PreGameDialog extends JDialog implements ActionListener{
 	public PreGameDialog(JFrame frame) {
 		super(frame, "Set Grid Size", true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        saveButton.addActionListener(this);
-        quitButton.addActionListener(this);
+        goButton.addActionListener(this);
         colBox = new JComboBox(availableSizesAsStrings);
         rowBox = new JComboBox(availableSizesAsStrings);
         JPanel panelN = new JPanel(new GridLayout(0, 2, FIVE, FIVE));
@@ -52,16 +50,15 @@ public class PreGameDialog extends JDialog implements ActionListener{
         panelN.setBorder(BorderFactory.createEmptyBorder(TEN, TEN, TEN, TEN));
         add(panelN, BorderLayout.CENTER);
         JPanel panelS = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        panelS.add(saveButton);
-        panelS.add(quitButton);
+        panelS.add(goButton);
         add(panelS, BorderLayout.SOUTH);
         pack();
 	}
 	
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(2);
-		rowBox.setSelectedIndex(1);
+		colBox.setSelectedIndex(3);
+		rowBox.setSelectedIndex(2);
 		selectedColSize = 7;
 		selectedRowSize = 6;
         label1.setText("Column Size:");
@@ -72,7 +69,7 @@ public class PreGameDialog extends JDialog implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-        if (source.equals(saveButton)) {
+        if (source.equals(goButton)) {
             int ret1 = colBox.getSelectedIndex();
             selectedColSize = availableSizes[ret1];
             int ret2 = rowBox.getSelectedIndex();
