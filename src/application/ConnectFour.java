@@ -5,13 +5,14 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import controller.Controller;
 import view.Frame;
 import model.Globals;
 import model.Grid;
 import model.Player;
 
 import org.apache.log4j.Logger;
+
+import controller.Controller;
 
 /**
  * ==============================================================
@@ -90,9 +91,11 @@ public class ConnectFour {
     /**
      * constructor
      * @param isTest true when using unit test; else false
+     * @param row row
+     * @param col col
      */
-    public ConnectFour(boolean isTest) {
-    	gv = new Globals(8, 8);
+    public ConnectFour(boolean isTest, int row, int col) {
+    	gv = new Globals(row, col);
         grid = new Grid(isTest, gv);
         Player player = new Player();
         controller = new Controller(grid, player, gv);
@@ -301,9 +304,15 @@ public class ConnectFour {
      *        \-----/                   \-----/
      * 
      * @param args: unused
+     * creates a dialog box to get Gridsize before the game starts
      */
     public static void main(String[] args) {
-        new ConnectFour(false).controlLoop();
+    	PreGameDialog getGridSize = new PreGameDialog(null);
+    	getGridSize.showDialog();
+    	int row = getGridSize.getRowSize();
+    	int col = getGridSize.getColumnSize();
+    	System.out.println(row + " + " + col);
+        new ConnectFour(false, row, col).controlLoop();
 
     }
 

@@ -1,11 +1,10 @@
-package view;
+package application;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -15,14 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.Globals;
-
-/**
- * GridSizeDialog
- * @author stgebhar
- * currently this can be used but there is no point in using it
- */
-public class GridSizeDialog extends JDialog implements ActionListener{
+public class PreGameDialog extends JDialog implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
     private static final int TEN = 10;
@@ -35,7 +27,6 @@ public class GridSizeDialog extends JDialog implements ActionListener{
     private int selectedRowSize;
     private int[] availableSizes = new int[] { 5, 6, 7, 8, 9 };
     private String[] availableSizesAsStrings = new String[] { "5", "6", "7", "8", "9" };
-    private Globals gv;
     
     // Supress Warnings because Maven gets problems otherwise
     @SuppressWarnings("rawtypes")
@@ -43,15 +34,9 @@ public class GridSizeDialog extends JDialog implements ActionListener{
     @SuppressWarnings("rawtypes")
    	private JComboBox rowBox;
 
-    /**
-     * constructor
-     * @param frame f
-     * @param glob g
-     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
-	public GridSizeDialog(JFrame frame, Globals glob) {
-		super(frame, "Grid Size", true);
-		this.gv = glob;
+	public PreGameDialog(JFrame frame) {
+		super(frame, "Set Grid Size", true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         saveButton.addActionListener(this);
         quitButton.addActionListener(this);
@@ -73,23 +58,17 @@ public class GridSizeDialog extends JDialog implements ActionListener{
         pack();
 	}
 	
-    /**
-     * show the dialog
-     */
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(gv.COL_SIZE - 5);
-		rowBox.setSelectedIndex(gv.ROW_SIZE - 5);
-		selectedColSize = gv.COL_SIZE;
-		selectedRowSize = gv.ROW_SIZE;
+		colBox.setSelectedIndex(2);
+		rowBox.setSelectedIndex(1);
+		selectedColSize = 7;
+		selectedRowSize = 6;
         label1.setText("Column Size:");
         label2.setText("Row Size:");
         setVisible(true);
     }
 
-	/**
-	 * ActionListener
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -103,18 +82,10 @@ public class GridSizeDialog extends JDialog implements ActionListener{
         setVisible(false);
     }
 	
-	/**
-	 * getter for colsize
-	 * @return rowsize
-	 */
 	public int getColumnSize(){
 		return selectedColSize;
 	}
 
-	/**
-	 * setter for colsize
-	 * @return rowsize
-	 */
 	public int getRowSize(){
 		return selectedRowSize;
 	}

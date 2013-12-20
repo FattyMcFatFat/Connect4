@@ -1,6 +1,5 @@
 package application;
 
-import application.ConnectFour;
 import junit.framework.TestCase;
 
 public class ConnectFourTest extends TestCase {
@@ -9,7 +8,7 @@ public class ConnectFourTest extends TestCase {
 
     @Override
     public void setUp() {
-        c4 = new ConnectFour(true);
+        c4 = new ConnectFour(true, 7, 6);
     }
 
     public void testHandleInputQuit() {

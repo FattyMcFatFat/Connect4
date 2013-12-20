@@ -13,7 +13,7 @@ public class GridTest extends TestCase {
     private Grid grid;
     private Globals gv;
     private static final String newLine = "\n";
-    private static final String sepLine = "|---+---+---+---+---+---+---|";
+    private static final String sepLine = "+---+---+---+---+---+---+---+";
     private static final String NumberLine = "|   |   |   |   |   |   |   | ";
 
     @Override

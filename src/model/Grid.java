@@ -88,10 +88,11 @@ public class Grid {
     /**
      * returns the grid as string
      */
+    @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
         result.append("+");
-        for (int i = 0; i < gv.NEW_ROW_SIZE; i++) {
+        for (int i = 0; i < gv.COL_SIZE; i++) {
 			result.append("---+");
 		}
         result.append("\n");
@@ -105,7 +106,7 @@ public class Grid {
             }
             result.append("\n");
             result.append("+");
-            for (int i = 0; i < gv.NEW_ROW_SIZE; i++) {
+            for (int i = 0; i < gv.COL_SIZE; i++) {
     			result.append("---+");
     		}
             result.append("\n");
@@ -116,7 +117,7 @@ public class Grid {
 
     /**
      * returns only the cellvalues as String Used for savegames
-     * @return the grid without whitespaces
+     * @return the grid without whitespace
      */
     public String vaulesToString() {
         StringBuffer result = new StringBuffer();
