@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import view.Frame;
+import view.PreGameDialog;
 import model.Globals;
 import model.Grid;
 import model.Player;
@@ -94,7 +95,18 @@ public class ConnectFour {
      * @param row row
      * @param col col
      */
-    public ConnectFour(boolean isTest, int row, int col) {
+    public ConnectFour(boolean isTest) {
+    	int row;
+    	int col;
+		if (!isTest) {
+			PreGameDialog getGridSize = new PreGameDialog(null);
+			getGridSize.showDialog();
+			row = getGridSize.getRowSize();
+			col = getGridSize.getColumnSize();
+		} else {
+			row = 6;
+			col = 7;
+		}
     	gv = new Globals(row, col);
         grid = new Grid(isTest, gv);
         Player player = new Player();
@@ -307,12 +319,7 @@ public class ConnectFour {
      * creates a dialog box to get Gridsize before the game starts
      */
     public static void main(String[] args) {
-    	PreGameDialog getGridSize = new PreGameDialog(null);
-    	getGridSize.showDialog();
-    	int row = getGridSize.getRowSize();
-    	int col = getGridSize.getColumnSize();
-    	System.out.println(row + " + " + col);
-        new ConnectFour(false, row, col).controlLoop();
+        new ConnectFour(false).controlLoop();
 
     }
 
