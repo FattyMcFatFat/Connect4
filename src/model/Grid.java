@@ -7,23 +7,22 @@ package model;
 public class Grid {
     private Cell[][] cells;
     private static final int THREE = 3;
-    private static final int FOUR = 4;
-    private static final int FIVE = 5;
-    private static final int ROWS = 6;
-    private static final int COLUMNS = 7;
     private Status status = new Status();
+    private Globals gv;
     private boolean isTestGrid;
 
     /**
      * constructor
      * @param isTest true is UnitTestCase, else false
      */
-    public Grid(boolean isTest) {
+    public Grid(boolean isTest, Globals globs) {
+    	
+    	this.gv = globs;
     	isTestGrid = isTest;
-        cells = new Cell[ROWS][COLUMNS];
+        cells = new Cell[gv.ROW_SIZE][gv.COL_SIZE];
 
-        for (int row = 0; row < ROWS; row++) {
-            for (int column = 0; column < COLUMNS; column++) {
+        for (int row = 0; row < gv.ROW_SIZE; row++) {
+            for (int column = 0; column < gv.COL_SIZE; column++) {
                 cells[row][column] = new Cell();
             }
         }
@@ -65,7 +64,7 @@ public class Grid {
      */
     public int getHeight(int col) {
         int i = 0;
-        for (i = 0; i < ROWS; i++) {
+        for (i = 0; i < gv.ROW_SIZE; i++) {
             if (cells[i][col].getValue() == 0) {
                 return i;
             }
@@ -77,8 +76,8 @@ public class Grid {
      * resets the grid
      */
     public void reset() {
-        for (int row = 0; row < ROWS; row++) {
-            for (int column = 0; column < COLUMNS; column++) {
+        for (int row = 0; row < gv.ROW_SIZE; row++) {
+            for (int column = 0; column < gv.COL_SIZE; column++) {
                 cells[row][column].setValue(0);
             }
         }
@@ -88,19 +87,27 @@ public class Grid {
     /**
      * returns the grid as string
      */
+    @Override
     public String toString() {
         StringBuffer result = new StringBuffer();
-        result.append("|---+---+---+---+---+---+---|\n");
-        for (int row = FIVE; row >= 0; row--) {
+        result.append("+");
+        for (int i = 0; i < gv.COL_SIZE; i++) {
+			result.append("---+");
+		}
+        result.append("\n");
+        for (int row = (gv.ROW_SIZE-1); row >= 0; row--) {
             result.append("| ");
-            for (int column = 0; column < COLUMNS; column++) {
+            for (int column = 0; column < gv.COL_SIZE; column++) {
                 result.append(cells[row][column].toStringNoZero());
                 result.append(" ");
                 result.append("|");
                 result.append(" ");
             }
             result.append("\n");
-            result.append("|---+---+---+---+---+---+---|");
+            result.append("+");
+            for (int i = 0; i < gv.COL_SIZE; i++) {
+    			result.append("---+");
+    		}
             result.append("\n");
 
         }
@@ -109,12 +116,12 @@ public class Grid {
 
     /**
      * returns only the cellvalues as String Used for savegames
-     * @return the grid without whitespaces
+     * @return the grid without whitespace
      */
     public String vaulesToString() {
         StringBuffer result = new StringBuffer();
-        for (int row = FIVE; row >= 0; row--) {
-            for (int column = 0; column < COLUMNS; column++) {
+        for (int row = (gv.ROW_SIZE-1); row >= 0; row--) {
+            for (int column = 0; column < gv.COL_SIZE; column++) {
                 result.append(cells[row][column].toString());
             }
             result.append("\n");
@@ -149,8 +156,8 @@ public class Grid {
      * @return true if player has won
      */
     private boolean wincheck1() {
-        for (int column = 0; column < FOUR; column++) {
-            for (int row = 0; row < ROWS; row++) {
+        for (int column = 0; column < (gv.COL_SIZE-THREE); column++) {
+            for (int row = 0; row < gv.ROW_SIZE; row++) {
                 if (cells[row][column].getValue() != 0
                         && cells[row][column].getValue() == cells[row][column + 1]
                                 .getValue()
@@ -170,8 +177,8 @@ public class Grid {
      * @return true if player has won
      */
     private boolean wincheck2() {
-        for (int column = 0; column < COLUMNS; column++) {
-            for (int row = 0; row < THREE; row++) {
+        for (int column = 0; column < gv.COL_SIZE; column++) {
+            for (int row = 0; row < (gv.ROW_SIZE-THREE); row++) {
                 if (cells[row][column].getValue() != 0
                         && cells[row][column].getValue() == cells[row + 1][column]
                                 .getValue()
@@ -191,8 +198,8 @@ public class Grid {
      * @return true if player has won
      */
     private boolean wincheck3() {
-        for (int column = 0; column < FOUR; column++) {
-            for (int row = 0; row < THREE; row++) {
+        for (int column = 0; column < (gv.COL_SIZE-THREE); column++) {
+            for (int row = 0; row < (gv.ROW_SIZE-THREE); row++) {
                 if (cells[row][column].getValue() != 0
                         && cells[row][column].getValue() == cells[row + 1][column + 1]
                                 .getValue()
@@ -212,8 +219,8 @@ public class Grid {
      * @return true if player has won
      */
     private boolean wincheck4() {
-        for (int column = THREE; column < COLUMNS; column++) {
-            for (int row = 0; row < THREE; row++) {
+        for (int column = THREE; column < gv.COL_SIZE; column++) {
+            for (int row = 0; row < (gv.ROW_SIZE-THREE); row++) {
                 if (cells[row][column].getValue() != 0
                         && cells[row][column].getValue() == cells[row + 1][column - 1]
                                 .getValue()

@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import observer.Observable;
 import model.Cell;
+import model.Globals;
 import model.Grid;
 import model.Player;
 import model.Status;
@@ -21,18 +22,16 @@ public class Controller extends Observable {
     private Status status;
     private Player player;
     private Turn turn;
+    private Globals gv;
     private Logger log = Logger.getLogger(Controller.class);
-    private static final int MAX_TURNS = 42;
-    private static final int FIVE = 5;
-    private static final int ROWS = 6;
-    private static final int COLUMNS = 7;
 
     /**
      * Constructor
      * @param grid: Grid
      * @param player: Player
      */
-    public Controller(Grid grid, Player player) {
+    public Controller(Grid grid, Player player, Globals globals) {
+    	this.gv = globals;
         this.grid = grid;
         this.status = grid.getStatus();
         this.player = player;
@@ -74,8 +73,12 @@ public class Controller extends Observable {
         grid.getStatus().setText(player.getOtherPlayerName() + "'s turn.");
 
         // checks if the grid is full
-        if (turn.getTurn() == MAX_TURNS) {
-            grid.getStatus().setText("It's a tie!");
+        if (turn.getTurn() == gv.MAX_TURNS) {
+        	if(player.hasWon()){
+        		grid.getStatus().setText(player.getWinner() + " has won the game!");
+        	} else {
+        		grid.getStatus().setText("It's a tie!");        		
+        	}
         }
 
         // checks if someone won the game
@@ -139,11 +142,11 @@ public class Controller extends Observable {
         }
         player.resetPlayer();
         turn.resetTurn();
-        int tmp = FIVE;
+        int tmp = gv.ROW_SIZE-1;
         String inputWithoutWhitespaces = input.replaceAll("\\s+", "");
-        for (int j = 0; j < ROWS; j++) {
-            for (int i = 0; i < COLUMNS; i++) {
-                char c = inputWithoutWhitespaces.charAt((j * COLUMNS) + i);
+        for (int j = 0; j < gv.ROW_SIZE; j++) {
+            for (int i = 0; i < gv.COL_SIZE; i++) {
+                char c = inputWithoutWhitespaces.charAt((j * gv.COL_SIZE) + i);
                 int val = Character.getNumericValue(c);
                 if (val != 0) {
                     grid.setCell(tmp, i, val);

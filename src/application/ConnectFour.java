@@ -5,12 +5,15 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import controller.Controller;
 import view.Frame;
+import view.PreGameDialog;
+import model.Globals;
 import model.Grid;
 import model.Player;
 
 import org.apache.log4j.Logger;
+
+import controller.Controller;
 
 /**
  * ==============================================================
@@ -75,6 +78,7 @@ public class ConnectFour {
     private Grid grid;
     private Controller controller;
     private Frame frame;
+    private Globals gv;
     private Logger log = Logger.getLogger(ConnectFour.class);
     private static final int BLACK = 1;
     private static final int LIGHT_GRAY = 2;
@@ -88,12 +92,26 @@ public class ConnectFour {
     /**
      * constructor
      * @param isTest true when using unit test; else false
+     * @param row row
+     * @param col col
      */
     public ConnectFour(boolean isTest) {
-        grid = new Grid(isTest);
+    	int row;
+    	int col;
+		if (!isTest) {
+			PreGameDialog getGridSize = new PreGameDialog(null);
+			getGridSize.showDialog();
+			row = getGridSize.getRowSize();
+			col = getGridSize.getColumnSize();
+		} else {
+			row = 6;
+			col = 7;
+		}
+    	gv = new Globals(row, col);
+        grid = new Grid(isTest, gv);
         Player player = new Player();
-        controller = new Controller(grid, player);
-        frame = new Frame(grid, controller, player);
+        controller = new Controller(grid, player, gv);
+        frame = new Frame(grid, controller, player, gv);
         controller.addObserver(frame);
 
     }
@@ -169,7 +187,8 @@ public class ConnectFour {
             return true;
         }
         // handles input 1-7
-        if (line.matches("[1-7]")) {
+        String validLines = "[1-" + gv.COL_SIZE + "]";
+        if (line.matches(validLines)) {
             handleNumberInput(line);
             return true;
         }
@@ -183,7 +202,7 @@ public class ConnectFour {
      * @param input: input as string
      */
     private void handleNumberInput(String input){
-        Pattern p = Pattern.compile("[1-7]");
+        Pattern p = Pattern.compile("[1-9]");
         Matcher m = p.matcher(input);
         m.find();
         int arg = Integer.parseInt(m.group());
@@ -297,6 +316,7 @@ public class ConnectFour {
      *        \-----/                   \-----/
      * 
      * @param args: unused
+     * creates a dialog box to get Gridsize before the game starts
      */
     public static void main(String[] args) {
         new ConnectFour(false).controlLoop();
