@@ -136,9 +136,9 @@ public class Frame extends JFrame implements IObserver {
              */
             public void actionPerformed(ActionEvent e) {
             	gridSizeDialoag.showDialog();
-                int newColSize = gridSizeDialoag.getColumnSize();
-                int newRowSize = gridSizeDialoag.getRowSize();
-                System.out.println(newColSize + " " + newRowSize);
+// CURRENTLY UNUSED
+//                int newColSize = gridSizeDialoag.getColumnSize();
+//                int newRowSize = gridSizeDialoag.getRowSize();
             }
         });
 		return gridSettings;
