@@ -1,6 +1,5 @@
 package application;
 
-import application.ConnectFour;
 import junit.framework.TestCase;
 
 public class ConnectFourTest extends TestCase {

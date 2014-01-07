@@ -10,16 +10,16 @@ public class ControllerTest extends TestCase {
     private Controller controller;
     private Grid grid;
     private Player player;
-    private Globals glob;
+    private Globals gv;
     private static final String newLine = "\n";
 
     @Override
     protected void setUp() {
 
-    	glob = new Globals(6, 7);
-        grid = new Grid(true, glob);
+    	gv = new Globals(6,7);
+        grid = new Grid(true, gv);
         player = new Player();
-        controller = new Controller(grid, player, glob);
+        controller = new Controller(grid, player, gv);
     }
 
     public void testSetCellsLoading() {
