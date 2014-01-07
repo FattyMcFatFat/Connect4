@@ -73,7 +73,7 @@ public class Controller extends Observable {
         grid.getStatus().setText(player.getOtherPlayerName() + "'s turn.");
 
         // checks if the grid is full
-        if (turn.getTurn() == gv.MAX_TURNS) {
+        if (turn.getTurn() == gv.getMaxTurns()) {
         	if(player.hasWon()){
         		grid.getStatus().setText(player.getWinner() + " has won the game!");
         	} else {
@@ -142,11 +142,11 @@ public class Controller extends Observable {
         }
         player.resetPlayer();
         turn.resetTurn();
-        int tmp = gv.ROW_SIZE-1;
+        int tmp = gv.getRowSize()-1;
         String inputWithoutWhitespaces = input.replaceAll("\\s+", "");
-        for (int j = 0; j < gv.ROW_SIZE; j++) {
-            for (int i = 0; i < gv.COL_SIZE; i++) {
-                char c = inputWithoutWhitespaces.charAt((j * gv.COL_SIZE) + i);
+        for (int j = 0; j < gv.getRowSize(); j++) {
+            for (int i = 0; i < gv.getColSize(); i++) {
+                char c = inputWithoutWhitespaces.charAt((j * gv.getColSize()) + i);
                 int val = Character.getNumericValue(c);
                 if (val != 0) {
                     grid.setCell(tmp, i, val);

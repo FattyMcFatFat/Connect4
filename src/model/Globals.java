@@ -6,11 +6,12 @@ package model;
  * At the moment there is no resizing, and i dont think there will ever be
  */
 public class Globals {
-	public int ROW_SIZE;
-	public int COL_SIZE;
-	public int MAX_TURNS;
-	public int NEW_ROW_SIZE;
-	public int NEW_COL_SIZE;
+
+	private int ROW_SIZE;
+	private int COL_SIZE;
+	private int MAX_TURNS;
+	private int NEW_ROW_SIZE;
+	private int NEW_COL_SIZE;
 	
 	/**
 	 * Constructor
@@ -35,4 +36,43 @@ public class Globals {
 		NEW_COL_SIZE = col;
 	}
 
+	/**
+	 * getter
+	 * @return row
+	 */
+	public int getRowSize() {
+		return ROW_SIZE;
+	}
+
+	/**
+	 * getter
+	 * @return new row
+	 */
+	public int getNewRowSize() {
+		return NEW_ROW_SIZE;
+	}
+	
+	/**
+	 * getter
+	 * @return col
+	 */
+	public int getColSize() {
+		return COL_SIZE;
+	}
+	
+	/**
+	 * getter
+	 * @return new col
+	 */
+	public int getNewColSize() {
+		return NEW_COL_SIZE;
+	}
+	
+	/**
+	 * getter
+	 * @return maxTurns (col * row)
+	 */
+	public int getMaxTurns() {
+		return MAX_TURNS;
+	}
 }

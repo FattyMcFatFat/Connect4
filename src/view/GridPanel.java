@@ -29,17 +29,17 @@ public class GridPanel extends JPanel {
      */
     public GridPanel(final Grid grid, final Controller controller,
             final Player player, final Globals gv) {
-        setLayout(new GridLayout(gv.ROW_SIZE, gv.COL_SIZE, 2, 2));
+        setLayout(new GridLayout(gv.getRowSize(), gv.getColSize(), 2, 2));
         setBorder(BorderFactory.createLoweredBevelBorder());
-        BlockPanel[] block = new BlockPanel[gv.MAX_TURNS];
+        BlockPanel[] block = new BlockPanel[gv.getMaxTurns()];
 
-        for (int index = 0; index < gv.MAX_TURNS; index++) {
+        for (int index = 0; index < gv.getMaxTurns(); index++) {
             block[index] = new BlockPanel(1);
             add(block[index]);
         }
         int i = 0;
-        for (int row = (gv.ROW_SIZE-1); row >= 0; row--) {
-            for (int column = 0; column < gv.COL_SIZE; column++) {
+        for (int row = (gv.getRowSize()-1); row >= 0; row--) {
+            for (int column = 0; column < gv.getColSize(); column++) {
                 CellPanel cellPanel = new CellPanel(grid.getCell(row, column),
                         player);
                 block[i].add(cellPanel);
@@ -57,7 +57,7 @@ public class GridPanel extends JPanel {
             public void mouseClicked(MouseEvent e) {
                 int clicked = e.getX();
                 int width = (int) getSize().getWidth();
-                int split = (int) (gv.COL_SIZE * ((double) clicked / (double) width));
+                int split = (int) (gv.getColSize() * ((double) clicked / (double) width));
                 if (grid.getHeight(split) != -1) {
                     controller.setValue(grid.getCell(grid.getHeight(split),
                             split));

@@ -187,7 +187,7 @@ public class ConnectFour {
             return true;
         }
         // handles input 1-7
-        String validLines = "[1-" + gv.COL_SIZE + "]";
+        String validLines = "[1-" + gv.getColSize() + "]";
         if (line.matches(validLines)) {
             handleNumberInput(line);
             return true;

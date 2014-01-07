@@ -77,10 +77,10 @@ public class GridSizeDialog extends JDialog implements ActionListener{
      */
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(gv.COL_SIZE - 5);
-		rowBox.setSelectedIndex(gv.ROW_SIZE - 5);
-		selectedColSize = gv.COL_SIZE;
-		selectedRowSize = gv.ROW_SIZE;
+		colBox.setSelectedIndex(gv.getColSize() - 5);
+		rowBox.setSelectedIndex(gv.getRowSize() - 5);
+		selectedColSize = gv.getColSize();
+		selectedRowSize = gv.getRowSize();
         label1.setText("Column Size:");
         label2.setText("Row Size:");
         setVisible(true);
