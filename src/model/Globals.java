@@ -4,14 +4,15 @@ package model;
  * Gloabsl
  * @author stgebhar
  * At the moment there is no resizing, and i dont think there will ever be
+ * edit: OHHHHH MAYBE ITS COMING SOON
  */
 public class Globals {
 
-	private int ROW_SIZE;
-	private int COL_SIZE;
-	private int MAX_TURNS;
-	private int NEW_ROW_SIZE;
-	private int NEW_COL_SIZE;
+	private int rowSize;
+	private int colSize;
+	private int maxTurns;
+	private int newRowSize;
+	private int newColSize;
 	
 	/**
 	 * Constructor
@@ -19,11 +20,11 @@ public class Globals {
 	 * @param col col
 	 */
 	public Globals(int row, int col){
-		ROW_SIZE = row;
-		COL_SIZE = col;
-		MAX_TURNS = row * col;
-		NEW_COL_SIZE = col;
-		NEW_ROW_SIZE = row;
+		rowSize = row;
+		colSize = col;
+		maxTurns = row * col;
+		newRowSize = row;
+		newColSize = col;
 	}
 	
 	/**
@@ -32,8 +33,8 @@ public class Globals {
 	 * @param col
 	 */
 	public void resizeGrid(int row, int col){
-		NEW_ROW_SIZE = row;
-		NEW_COL_SIZE = col;
+		newRowSize = row;
+		newColSize = col;
 	}
 
 	/**
@@ -41,7 +42,7 @@ public class Globals {
 	 * @return row
 	 */
 	public int getRowSize() {
-		return ROW_SIZE;
+		return rowSize;
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class Globals {
 	 * @return new row
 	 */
 	public int getNewRowSize() {
-		return NEW_ROW_SIZE;
+		return newRowSize;
 	}
 	
 	/**
@@ -57,7 +58,7 @@ public class Globals {
 	 * @return col
 	 */
 	public int getColSize() {
-		return COL_SIZE;
+		return colSize;
 	}
 	
 	/**
@@ -65,7 +66,7 @@ public class Globals {
 	 * @return new col
 	 */
 	public int getNewColSize() {
-		return NEW_COL_SIZE;
+		return newColSize;
 	}
 	
 	/**
@@ -73,6 +74,6 @@ public class Globals {
 	 * @return maxTurns (col * row)
 	 */
 	public int getMaxTurns() {
-		return MAX_TURNS;
+		return maxTurns;
 	}
 }
