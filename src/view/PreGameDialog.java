@@ -14,6 +14,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * class PreGameDialog
+ * @author stgebhar
+ *
+ */
 public class PreGameDialog extends JDialog implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -39,6 +44,10 @@ public class PreGameDialog extends JDialog implements ActionListener{
     @SuppressWarnings("rawtypes")
    	private JComboBox rowBox;
 
+    /**
+     * constructor
+     * @param frame
+     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	public PreGameDialog(JFrame frame) {
 		super(frame, "Set Grid Size", true);
@@ -61,6 +70,9 @@ public class PreGameDialog extends JDialog implements ActionListener{
         pack();
 	}
 	
+    /**
+     * show the dialog
+     */
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
 		colBox.setSelectedIndex(THREE);
@@ -72,6 +84,9 @@ public class PreGameDialog extends JDialog implements ActionListener{
         setVisible(true);
     }
 
+	/**
+	 * ActionListener
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -85,10 +100,18 @@ public class PreGameDialog extends JDialog implements ActionListener{
         setVisible(false);
     }
 	
+	/**
+	 * getter
+	 * @return colSize
+	 */
 	public int getColumnSize(){
 		return selectedColSize;
 	}
 
+	/**
+	 * getter
+	 * @return rowSize
+	 */
 	public int getRowSize(){
 		return selectedRowSize;
 	}
