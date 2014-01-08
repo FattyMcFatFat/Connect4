@@ -154,4 +154,50 @@ public class ConnectFourTest extends TestCase {
         assertEquals(true, c4.handleInput("1"));
 
     }
+    
+    public void testWin5() {
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("1"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("2"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("3"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("4"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("5"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("7"));
+        assertEquals(true, c4.handleInput("6"));
+        assertEquals(true, c4.handleInput("6"));
+        assertEquals(true, c4.handleInput("6"));
+        assertEquals(true, c4.handleInput("6"));
+        assertEquals(true, c4.handleInput("6"));
+        assertEquals(true, c4.handleInput("6"));
+
+    }
 }
