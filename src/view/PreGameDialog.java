@@ -31,8 +31,8 @@ public class PreGameDialog extends JDialog implements ActionListener{
     private static final int NINE = 9;
     private static final int TEN = 10;
     private JButton goButton = new JButton("GOOOOOOO");
-    private JLabel label1;
-    private JLabel label2;
+    private JLabel labelP1;
+    private JLabel labelP2;
     private int selectedColSize;
     private int selectedRowSize;
     private int[] availableSizes = new int[] { FOUR, FIVE, SIX, SEVEN, EIGHT, NINE };
@@ -53,14 +53,14 @@ public class PreGameDialog extends JDialog implements ActionListener{
 		super(frame, "Set Grid Size", true);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         goButton.addActionListener(this);
-        colBox = new JComboBox(availableSizesAsStrings);
         rowBox = new JComboBox(availableSizesAsStrings);
+        colBox = new JComboBox(availableSizesAsStrings);
         JPanel panelN = new JPanel(new GridLayout(0, 2, FIVE, FIVE));
-        label1 = new JLabel("Player 1", JLabel.RIGHT);
-        panelN.add(label1);
+        labelP1 = new JLabel("Player 1", JLabel.RIGHT);
+        panelN.add(labelP1);
         panelN.add(colBox);
-        label2 = new JLabel("Player 2", JLabel.RIGHT);
-        panelN.add(label2);
+        labelP2 = new JLabel("Player 2", JLabel.RIGHT);
+        panelN.add(labelP2);
         panelN.add(rowBox);
         panelN.setBorder(BorderFactory.createEmptyBorder(TEN, TEN, TEN, TEN));
         add(panelN, BorderLayout.CENTER);
@@ -79,8 +79,8 @@ public class PreGameDialog extends JDialog implements ActionListener{
 		colBox.setSelectedIndex(THREE);
 		selectedRowSize = SIX;
 		selectedColSize = SEVEN;
-        label2.setText("Row Size:");
-        label1.setText("Column Size:");
+        labelP2.setText("Row Size:");
+        labelP1.setText("Column Size:");
         setVisible(true);
     }
 
