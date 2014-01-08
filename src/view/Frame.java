@@ -274,11 +274,7 @@ public class Frame extends JFrame implements IObserver {
                 outStream.close();
 
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "IOException saving game:\n"
-                                + e.getLocalizedMessage(), "Error",
-                        JOptionPane.ERROR_MESSAGE);
+            	createErrorMessage(e, frame);
             }
         }
     }
@@ -298,25 +294,21 @@ public class Frame extends JFrame implements IObserver {
                 controller.setCellsFromLoad((String) inStream.readObject());
                 inStream.close();
             } catch (IOException e) {
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "IOException reading connect4:\n"
-                                + e.getLocalizedMessage(), "Error",
-                        JOptionPane.ERROR_MESSAGE);
+            	createErrorMessage(e, frame);
             } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(
-                        frame,
-                        "IOException reading connect4:\n"
-                                + e.getLocalizedMessage(), "Error",
-                        JOptionPane.ERROR_MESSAGE);
+            	createErrorMessage(e, frame);
             } catch (IndexOutOfBoundsException e) {
-            	JOptionPane.showMessageDialog(
-                        frame,
-                        "IOException reading connect4:\n"
-                                + e.getLocalizedMessage(), "Error",
-                        JOptionPane.ERROR_MESSAGE);
+            	createErrorMessage(e, frame);
             }
         }
+    }
+    
+    private void createErrorMessage(Exception e, JFrame frame){
+    	JOptionPane.showMessageDialog(
+                frame,
+                "IOException reading connect4:\n"
+                        + e.getLocalizedMessage(), "Error",
+                JOptionPane.ERROR_MESSAGE);
     }
 
     /**
