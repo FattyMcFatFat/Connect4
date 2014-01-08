@@ -309,6 +309,12 @@ public class Frame extends JFrame implements IObserver {
                         "IOException reading connect4:\n"
                                 + e.getLocalizedMessage(), "Error",
                         JOptionPane.ERROR_MESSAGE);
+            } catch (IndexOutOfBoundsException e) {
+            	JOptionPane.showMessageDialog(
+                        frame,
+                        "IOException reading connect4:\n"
+                                + e.getLocalizedMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
     }
