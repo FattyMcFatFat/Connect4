@@ -82,11 +82,9 @@ public class Controller extends Observable {
         }
 
         // checks if someone won the game
-        if (grid.winCheck()) {
-            if (!player.hasWon()) {
-                player.setWon(player.getPlayerName());
-                grid.getStatus().setText(player.getWinner() + " has won the game!");
-            }
+        if (grid.winCheck() && !player.hasWon()) {
+        	player.setWon(player.getPlayerName());
+        	grid.getStatus().setText(player.getWinner() + " has won the game!");
         }
         log.info(grid.getStatus().getText());
 

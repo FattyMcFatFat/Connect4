@@ -17,14 +17,20 @@ import javax.swing.JPanel;
 public class PreGameDialog extends JDialog implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
+	private static final int THREE = 3;
+	private static final int FOUR = 4;
+	private static final int FIVE = 5;
+    private static final int SIX = 6;
+    private static final int SEVEN = 7;
+    private static final int EIGHT = 8;
+    private static final int NINE = 9;
     private static final int TEN = 10;
-    private static final int FIVE = 5;
     private JButton goButton = new JButton("GOOOOOOO");
     private JLabel label1;
     private JLabel label2;
     private int selectedColSize;
     private int selectedRowSize;
-    private int[] availableSizes = new int[] { 4, 5, 6, 7, 8, 9 };
+    private int[] availableSizes = new int[] { FOUR, FIVE, SIX, SEVEN, EIGHT, NINE };
     private String[] availableSizesAsStrings = new String[] {"4", "5", "6", "7", "8", "9" };
     
     // Supress Warnings because Maven gets problems otherwise
@@ -57,10 +63,10 @@ public class PreGameDialog extends JDialog implements ActionListener{
 	
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(3);
+		colBox.setSelectedIndex(THREE);
 		rowBox.setSelectedIndex(2);
-		selectedColSize = 7;
-		selectedRowSize = 6;
+		selectedColSize = SEVEN;
+		selectedRowSize = SIX;
         label1.setText("Column Size:");
         label2.setText("Row Size:");
         setVisible(true);

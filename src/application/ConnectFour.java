@@ -88,6 +88,8 @@ public class ConnectFour {
     private static final int GREEN = 6;
     private static final int BLUE = 7;
     private static final int PINK = 8;
+    private static final int SIX = 6;
+    private static final int SEVEN = 7;
 
     /**
      * constructor
@@ -104,8 +106,8 @@ public class ConnectFour {
 			row = getGridSize.getRowSize();
 			col = getGridSize.getColumnSize();
 		} else {
-			row = 6;
-			col = 7;
+			row = SIX;
+			col = SEVEN;
 		}
     	gv = new Globals(row, col);
         grid = new Grid(isTest, gv);

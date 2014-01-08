@@ -24,15 +24,20 @@ import model.Globals;
 public class GridSizeDialog extends JDialog implements ActionListener{
 	
 	private static final long serialVersionUID = 1L;
+	private static final int FOUR = 4;
+	private static final int FIVE = 5;
+	private static final int SIX = 6;
+	private static final int SEVEN = 7;
+	private static final int EIGHT = 8;
+	private static final int NINE = 9;
     private static final int TEN = 10;
-    private static final int FIVE = 5;
     private JButton saveButton = new JButton("Save");
     private JButton quitButton = new JButton("Cancel");
     private JLabel label1;
     private JLabel label2;
     private int selectedColSize;
     private int selectedRowSize;
-    private int[] availableSizes = new int[] { 5, 6, 7, 8, 9 };
+    private int[] availableSizes = new int[] { FOUR, FIVE, SIX, SEVEN, EIGHT, NINE };
     private String[] availableSizesAsStrings = new String[] { "5", "6", "7", "8", "9" };
     private Globals gv;
     
@@ -77,8 +82,8 @@ public class GridSizeDialog extends JDialog implements ActionListener{
      */
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(gv.getColSize() - 5);
-		rowBox.setSelectedIndex(gv.getRowSize() - 5);
+		colBox.setSelectedIndex(gv.getColSize() - FIVE);
+		rowBox.setSelectedIndex(gv.getRowSize() - FIVE);
 		selectedColSize = gv.getColSize();
 		selectedRowSize = gv.getRowSize();
         label1.setText("Column Size:");
