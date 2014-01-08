@@ -75,12 +75,12 @@ public class PreGameDialog extends JDialog implements ActionListener{
      */
 	public void showDialog() {
 		// Sehr Fehleranfaellig, aber tut :D
-		colBox.setSelectedIndex(THREE);
 		rowBox.setSelectedIndex(2);
-		selectedColSize = SEVEN;
+		colBox.setSelectedIndex(THREE);
 		selectedRowSize = SIX;
-        label1.setText("Column Size:");
+		selectedColSize = SEVEN;
         label2.setText("Row Size:");
+        label1.setText("Column Size:");
         setVisible(true);
     }
 
