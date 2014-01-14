@@ -151,15 +151,18 @@ public class ConnectFour {
         if (line.equalsIgnoreCase("quit")) {
             return false;
         }
+        
         // quit the game
         if (line.equalsIgnoreCase("exit")) {
             return false;
         }
+        
         // help quest
         if (line.equalsIgnoreCase("help")) {
             printHelpMessage();
             return true;
         }
+        
         // starts a new game
         if (line.equalsIgnoreCase("new")) {
             controller.newGrid();
@@ -172,28 +175,33 @@ public class ConnectFour {
             controller.setPlayernames(name, "");
             return true;
         }
+        
         // set name for player2
         if (line.startsWith("n2")) {
             String name = line.substring(2, line.length());
             controller.setPlayernames("", name);
             return true;
         }
+        
         // set color for player1
         if (line.startsWith("c1")) {
             setColorForPlayer(line, 1);
             return true;
         }
+        
         // set color for player2
         if (line.startsWith("c2")) {
             setColorForPlayer(line, 2);
             return true;
         }
+        
         // handles input 1-7
         String validLines = "[1-" + gv.getColSize() + "]";
         if (line.matches(validLines)) {
             handleNumberInput(line);
             return true;
         }
+        
         // in case there was no valid input
         log.warn("invalid input");
         return true;

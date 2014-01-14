@@ -299,10 +299,18 @@ public class Frame extends JFrame implements IObserver {
             	createErrorMessage(e, frame);
             } catch (IndexOutOfBoundsException e) {
             	createErrorMessage(e, frame);
-            }
+	        } catch (Exception e) {
+	        	//in case there is an unexpected exception
+	        	createErrorMessage(e, frame);
+	        }
         }
     }
     
+    /**
+     * shows an error-message, if saving or loading went wrong
+     * @param e expection	
+     * @param frame frame
+     */
     private void createErrorMessage(Exception e, JFrame frame){
     	JOptionPane.showMessageDialog(
                 frame,
