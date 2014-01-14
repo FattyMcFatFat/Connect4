@@ -61,8 +61,7 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
         		"Yellow",
                 "Green", 
                 "Blue", 
-                "Pink" 
-                };
+                "Pink"};
         playerOneBox = new JComboBox(colorStrings);
         playerTwoBox = new JComboBox(colorStrings);
         JPanel panelN = new JPanel(new GridLayout(0, 2, FIVE, FIVE));

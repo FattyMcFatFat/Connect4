@@ -43,8 +43,7 @@ public class GridSizeDialog extends JDialog implements ActionListener{
     		SIX, 
     		SEVEN, 
     		EIGHT, 
-    		NINE 
-    		};
+    		NINE};
     private String[] availableSizesAsStrings = new String[] { "5", "6", "7", "8", "9" };
     private Globals gv;
     
