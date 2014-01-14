@@ -37,7 +37,14 @@ public class GridSizeDialog extends JDialog implements ActionListener{
     private JLabel label2;
     private int selectedColSize;
     private int selectedRowSize;
-    private int[] availableSizes = new int[] { FOUR, FIVE, SIX, SEVEN, EIGHT, NINE };
+    private int[] availableSizes = new int[] { 
+    		FOUR, 
+    		FIVE, 
+    		SIX, 
+    		SEVEN, 
+    		EIGHT, 
+    		NINE 
+    		};
     private String[] availableSizesAsStrings = new String[] { "5", "6", "7", "8", "9" };
     private Globals gv;
     

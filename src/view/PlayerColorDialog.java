@@ -53,8 +53,16 @@ public class PlayerColorDialog extends JDialog implements ActionListener {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         saveButton.addActionListener(this);
         quitButton.addActionListener(this);
-        String[] colorStrings = { "Black", "Gray", "Red", "Orange", "Yellow",
-                "Green", "Blue", "Pink" };
+        String[] colorStrings = { 
+        		"Black", 
+        		"Gray", 
+        		"Red", 
+        		"Orange", 
+        		"Yellow",
+                "Green", 
+                "Blue", 
+                "Pink" 
+                };
         playerOneBox = new JComboBox(colorStrings);
         playerTwoBox = new JComboBox(colorStrings);
         JPanel panelN = new JPanel(new GridLayout(0, 2, FIVE, FIVE));
