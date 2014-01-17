@@ -14,9 +14,10 @@ Further requirements of this project were:
 
 The initial UI was a textual User-Interface, so we could operate with the code in an early state of the project. The graphical User-Interface had not to be built until the model- and the controller-layer are (almost) finished, and there is no need to perform big changes on these layers anymore.
 
-How To Play
+###How To Play
 
-TUI:
+###TUI:
+
 If you need help with the TUI type "help" to get an overview about available commands:
 
 Available commands:
@@ -30,7 +31,8 @@ Available commands:
  * new: start a new game
  * quit: exit the game
 
-GUI:
+###GUI:
+
 All you need to do is Press in the column you want to put in your token.
 
 
