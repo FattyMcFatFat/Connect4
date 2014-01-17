@@ -41,4 +41,6 @@ File->Change Name: change names
 
 File->Change gridSize (currently bugged)
 
+###Patterns:
 
+There is only one pattern in use: the observer-pattern
