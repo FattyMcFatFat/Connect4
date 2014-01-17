@@ -32,9 +32,13 @@ Available commands:
 ###GUI:
 
 All you need to do is Press in the column you want to put in your token.
+
 Extra Options:
+
 File->Change Colors: to change colors
+
 File->Change Name: change names
+
 File->Change gridSize (currently bugged)
 
 
