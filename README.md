@@ -27,3 +27,7 @@ Available commands:
  * help: request help
  * new: start a new game
  * quit: exit the game
+
+GUI:
+
+Press in the column you want to put in your token
